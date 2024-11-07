@@ -36,7 +36,8 @@ int ACCELERO_IO_Write(uint8_t reg, uint8_t value)
 	int err;
 
 	/* STEP 5.1 - declare a tx buffer having register address and data */
-	uint8_t tx_buf[] = {(reg & 0x7F), value};	
+	//uint8_t tx_buf[] = {(reg & 0x7F), value};	
+	uint8_t tx_buf[] = {reg , value};	
 	struct spi_buf 		tx_spi_buf 		= {.buf = tx_buf, .len = sizeof(tx_buf)};
 	struct spi_buf_set 	tx_spi_buf_set	= {.buffers = &tx_spi_buf, .count = 1};
 
