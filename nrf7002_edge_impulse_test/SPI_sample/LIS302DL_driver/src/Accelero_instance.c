@@ -44,12 +44,12 @@ int ACCELERO_IO_Read(uint8_t reg, uint8_t *data, uint8_t size)
 
 int ACCELERO_IO_Write(uint8_t reg, uint8_t value)
 {
-  struct device *cs_gpio;
-  cs_gpio = device_get_binding("GPIO_0");
-  gpio_pin_configure(cs_gpio,CS_PIN, GPIO_OUTPUT_ACTIVE | CS_FLAGS);
+//  struct device *cs_gpio;
+//  cs_gpio = device_get_binding("GPIO_0");
+//  gpio_pin_configure(cs_gpio,CS_PIN, GPIO_OUTPUT_ACTIVE | CS_FLAGS);
 //	cs_gpio = device_get_binding("GPIO_0");
 //	gpio_pin_configure(cs_gpio,CS_PIN, GPIO_OUTPUT_ACTIVE | CS_FLAGS);
-	gpio_pin_set(cs_gpio, CS_PIN, 0);
+//	gpio_pin_set(cs_gpio, CS_PIN, 0);
 //	k_msleep(1);
 	int err;
 
@@ -66,7 +66,7 @@ int ACCELERO_IO_Write(uint8_t reg, uint8_t value)
 		return err;
 	}
 
-	gpio_pin_set(cs_gpio, CS_PIN, 1);
+//	gpio_pin_set(cs_gpio, CS_PIN, 1);
 	k_msleep(1);
 
 	return 0;
