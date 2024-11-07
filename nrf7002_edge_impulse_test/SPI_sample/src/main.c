@@ -49,9 +49,9 @@ int main(void)
 	// bme_write_reg(CTRLMEAS, 0x93);	
 	
 	LOG_INF("Continuously read sensor samples, compensate, and display");
-
+  hello_world();
 	while(1){
-		hello_world();
+		//hello_world();
 		/* STEP 10.4 - Continuously read sensor samples and toggle led */
 		// bme_read_sample();
 		gpio_pin_toggle_dt(&ledspec);
