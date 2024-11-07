@@ -17,10 +17,10 @@ const struct device *cs_gpio;
 int ACCELERO_IO_Read(uint8_t reg, uint8_t *data, uint8_t size)
 {
 	//cs_gpio = device_get_biding(DT_LABEL(DT_NODELABEL(gpio0)));
-	cs_gpio = device_get_binding("GPIO_0");
-	gpio_pin_configure(cs_gpio,CS_PIN, GPIO_OUTPUT_ACTIVE | CS_FLAGS);
-	gpio_pin_set(cs_gpio, CS_PIN, 0);
-	k_msleep(1);
+//	cs_gpio = device_get_binding("GPIO_0");
+//	gpio_pin_configure(cs_gpio,CS_PIN, GPIO_OUTPUT_ACTIVE | CS_FLAGS);
+//	gpio_pin_set(cs_gpio, CS_PIN, 0);
+//	k_msleep(1);
 	int err;
 
 	/* STEP 4.1 - Set the transmit and receive buffers */
@@ -36,7 +36,7 @@ int ACCELERO_IO_Read(uint8_t reg, uint8_t *data, uint8_t size)
 		// LOG_ERR("spi_transceive_dt() failed, err: %d", err);
 		return err;
 	}
-	gpio_pin_set(cs_gpio, CS_PIN, 1);
+//	gpio_pin_set(cs_gpio, CS_PIN, 1);
 	k_msleep(1);
 
 	return 0;
@@ -44,10 +44,10 @@ int ACCELERO_IO_Read(uint8_t reg, uint8_t *data, uint8_t size)
 
 int ACCELERO_IO_Write(uint8_t reg, uint8_t value)
 {
-	cs_gpio = device_get_binding("GPIO_0");
-	gpio_pin_configure(cs_gpio,CS_PIN, GPIO_OUTPUT_ACTIVE | CS_FLAGS);
-	gpio_pin_set(cs_gpio, CS_PIN, 0);
-	k_msleep(1);
+//	cs_gpio = device_get_binding("GPIO_0");
+//	gpio_pin_configure(cs_gpio,CS_PIN, GPIO_OUTPUT_ACTIVE | CS_FLAGS);
+//	gpio_pin_set(cs_gpio, CS_PIN, 0);
+//	k_msleep(1);
 	int err;
 
 	/* STEP 5.1 - declare a tx buffer having register address and data */
@@ -63,7 +63,7 @@ int ACCELERO_IO_Write(uint8_t reg, uint8_t value)
 		return err;
 	}
 
-	gpio_pin_set(cs_gpio, CS_PIN, 1);
+	//gpio_pin_set(cs_gpio, CS_PIN, 1);
 	k_msleep(1);
 
 	return 0;
