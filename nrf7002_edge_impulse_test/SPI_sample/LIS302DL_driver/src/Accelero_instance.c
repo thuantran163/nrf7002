@@ -10,15 +10,33 @@
 struct spi_dt_spec spispec = SPI_DT_SPEC_GET(DT_NODELABEL(bme280), SPIOP, 0);
 #define CS_PIN 			DT_GPIO_PIN(DT_NODELABEL(spi1), cs_gpios)
 #define CS_FLAGS		DT_GPIO_FLAGS(DT_NODELABEL(spi1), cs_gpios)
+#define CS_GPIO_PIN 25
+#define SPI_DEV "SPI_1"
 
+static const struct spi_config spi_cfg ={
+  .frequency = 1000000,
+  .operation = SPI_OP_MODE_MASTER | SPI_TRANSFER_MSB | SPI_WORD_SET(8),
+  .cs = NULL,
+};
+static const struct device *spi_dev;
+void toggle_cs_gpio(bool assert)
+{
+  struct device *gpio_dev = device_get_binding("GPIO_0");
+  gpio_pin_configure(gpio_dev, CS_GPIO_PIN, GPIO_OUTPUT);
+  gpio_pin_set(gpio_dev, CS_GPIO_PIN, assert ? 0 :1);
+
+}
 //const struct device *cs_gpio;
 
 int ACCELERO_IO_Read(uint8_t reg, uint8_t *data, uint8_t size)
 {
+  spi_dev = device_get_binding(SPI_DEV);
+
+  toggle_cs_gpio(true);
 	//cs_gpio = device_get_biding(DT_LABEL(DT_NODELABEL(gpio0)));
-const  struct device *cs_gpio;
-  cs_gpio = device_get_binding("GPIO_0");
-  gpio_pin_configure(cs_gpio,CS_PIN, GPIO_OUTPUT_ACTIVE | CS_FLAGS);
+//const  struct device *cs_gpio;
+//  cs_gpio = device_get_binding("GPIO_0");
+//  gpio_pin_configure(cs_gpio,CS_PIN, GPIO_OUTPUT_ACTIVE | CS_FLAGS);
 //	gpio_pin_set(cs_gpio, CS_PIN, 0);
 	k_msleep(1);
 	int err;
@@ -36,6 +54,7 @@ const  struct device *cs_gpio;
 		// LOG_ERR("spi_transceive_dt() failed, err: %d", err);
 		return err;
 	}
+  toggle_cs_gpio(false);
 //	gpio_pin_set(cs_gpio, CS_PIN, 1);
 	k_msleep(1);
 
