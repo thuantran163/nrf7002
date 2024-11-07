@@ -25,22 +25,28 @@ int hello_world()
  // uint8_t test_data;
  // LIS302DL_Read_WhoAmIRegister(test_data);
  // printf("Hello_world\r\n");
-	LIS302DL_Init();
-	uint8_t test_value = LIS302DL_ReadID();
-	//printf("\r WHO_AM_I reg: %x \r\n", test_value);
 
-	OutValue_TypeDef read_data ={
-		.OUT_X =0,
-		.OUT_Y =0,
-		.OUT_Z =0
-	};
-	LIS302DL_Read_Data(&read_data);
+
+
+//	LIS302DL_Init();
+//	uint8_t test_value = LIS302DL_ReadID();
+//	//printf("\r WHO_AM_I reg: %x \r\n", test_value);
+//
+//	OutValue_TypeDef read_data ={
+//		.OUT_X =0,
+//		.OUT_Y =0,
+//		.OUT_Z =0
+//	};
+//	LIS302DL_Read_Data(&read_data);
   printk("Hello world\r\n");
-  k_sleep(K_SECONDS(1)) ;
-	printk("\n Xdata: %d\r\n", read_data.OUT_X);
-	printk("\n Ydata: %d\r\n", read_data.OUT_Y);
-	printk("\n Zdata: %d\r\n", read_data.OUT_Z);
-	printk("%d,%d,%d\r\n", read_data.OUT_X, read_data.OUT_Y,read_data.OUT_Z);
+
+
+
+//  k_sleep(K_SECONDS(1)) ;
+//	printk("\n Xdata: %d\r\n", read_data.OUT_X);
+//	printk("\n Ydata: %d\r\n", read_data.OUT_Y);
+//	printk("\n Zdata: %d\r\n", read_data.OUT_Z);
+//	printk("%d,%d,%d\r\n", read_data.OUT_X, read_data.OUT_Y,read_data.OUT_Z);
  // HAL_Delay(10);
  return 0;
 };
