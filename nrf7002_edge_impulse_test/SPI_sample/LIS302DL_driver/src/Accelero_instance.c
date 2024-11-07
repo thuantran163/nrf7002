@@ -6,7 +6,7 @@
 
 
 /* STEP 3 - Retrieve the API-device structure */
-#define SPIOP	SPI_WORD_SET(16) | SPI_TRANSFER_MSB
+#define SPIOP	SPI_WORD_SET(8) | SPI_TRANSFER_MSB
 struct spi_dt_spec spispec = SPI_DT_SPEC_GET(DT_NODELABEL(bme280), SPIOP, 0);
 
 
@@ -16,10 +16,10 @@ int ACCELERO_IO_Read(uint8_t reg, uint8_t *data, uint8_t size)
 
 	/* STEP 4.1 - Set the transmit and receive buffers */
 	uint8_t tx_buffer = reg;
-	struct spi_buf tx_spi_buf			= {.buf = (void *)&tx_buffer, .len = 1};
-	struct spi_buf_set tx_spi_buf_set 	= {.buffers = &tx_spi_buf, .count = 1};
+	struct spi_buf tx_spi_buf			= {.buf = (void *)&tx_buffer, .len = 2};
+	struct spi_buf_set tx_spi_buf_set 	= {.buffers = &tx_spi_buf, .count = 2};
 	struct spi_buf rx_spi_bufs 			= {.buf = data, .len = size};
-	struct spi_buf_set rx_spi_buf_set	= {.buffers = &rx_spi_bufs, .count = 1};
+	struct spi_buf_set rx_spi_buf_set	= {.buffers = &rx_spi_bufs, .count = 2};
 
 	/* STEP 4.2 - Call the transceive function */
 	err = spi_transceive_dt(&spispec, &tx_spi_buf_set, &rx_spi_buf_set);
@@ -39,7 +39,7 @@ int ACCELERO_IO_Write(uint8_t reg, uint8_t value)
 	//uint8_t tx_buf[] = {(reg & 0x7F), value};	
 	uint8_t tx_buf[] = {reg , value};	
 	struct spi_buf 		tx_spi_buf 		= {.buf = tx_buf, .len = sizeof(tx_buf)};
-	struct spi_buf_set 	tx_spi_buf_set	= {.buffers = &tx_spi_buf, .count = 1};
+	struct spi_buf_set 	tx_spi_buf_set	= {.buffers = &tx_spi_buf, .count = 2};
 
 	/* STEP 5.2 - call the spi_write_dt function with SPISPEC to write buffers */
 	err = spi_write_dt(&spispec, &tx_spi_buf_set);
