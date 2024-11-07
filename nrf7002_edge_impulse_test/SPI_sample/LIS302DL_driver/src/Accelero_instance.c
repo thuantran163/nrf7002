@@ -24,7 +24,7 @@ static const struct spi_config spi_cfg ={
 static const struct device *spi_dev;
 void toggle_cs_gpio(bool assert)
 {
-//  struct device *gpio_dev = device_get_binding("GPIO_0");
+  struct device *gpio_dev = device_get_binding("GPIO_0");
 //  gpio_pin_configure(gpio_dev, GPIO_PIN, GPIO_OUTPUT);
 //  gpio_pin_set(gpio_dev, GPIO_PIN, assert ? 0 :1);
 
