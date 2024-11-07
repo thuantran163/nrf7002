@@ -168,7 +168,7 @@
 				pinctrl-0 = < &spi1_default >;
 				pinctrl-1 = < &spi1_sleep >;
 				pinctrl-names = "default", "sleep";
-				cs-gpios = < &gpio0 0x19 0x1 >;
+				cs-gpios = < &gpio0 0xf 0x1 >;
 				bme280: bme280@0 {
 					compatible = "bosch,bme280";
 					reg = < 0x0 >;
