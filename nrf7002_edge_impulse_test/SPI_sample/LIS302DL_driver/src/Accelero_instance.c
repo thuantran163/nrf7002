@@ -6,7 +6,7 @@
 
 
 /* STEP 3 - Retrieve the API-device structure */
-#define SPIOP	SPI_WORD_SET(8) | SPI_TRANSFER_MSB
+#define SPIOP	SPI_WORD_SET(16) | SPI_TRANSFER_MSB
 struct spi_dt_spec spispec = SPI_DT_SPEC_GET(DT_NODELABEL(bme280), SPIOP, 0);
 
 
