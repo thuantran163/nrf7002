@@ -58,7 +58,7 @@ int ACCELERO_IO_Read(uint8_t reg, uint8_t *data, uint8_t size)
 		// LOG_ERR("spi_transceive_dt() failed, err: %d", err);
 		return err;
 	}
-  toggle_cs_gpio(false);
+  //toggle_cs_gpio(false);
 //	gpio_pin_set(cs_gpio, CS_PIN, 1);
 	k_msleep(1);
 

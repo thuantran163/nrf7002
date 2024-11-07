@@ -1248,6 +1248,7 @@
 #define DT_N_S_soc_S_peripheral_40000000_S_gpio_842500_SUPPORTS_ORDS \
 	13, /* /nrf7002-coex */ \
 	137, /* /soc/peripheral@40000000/qspi@2b000/nrf7002@1 */ \
+	138, /* /soc/peripheral@40000000/spi@9000 */ \
 	140, /* /soc/peripheral@40000000/spi@a000 */
 
 /* Existence and alternate IDs: */
@@ -14308,6 +14309,7 @@
 #define DT_N_S_soc_S_peripheral_40000000_S_spi_9000_REQUIRES_ORDS \
 	8, /* /soc/interrupt-controller@e000e100 */ \
 	10, /* /soc/peripheral@40000000 */ \
+	11, /* /soc/peripheral@40000000/gpio@842500 */ \
 	47, /* /pin-controller/spi1_default */ \
 	49, /* /pin-controller/spi1_sleep */
 
@@ -14388,6 +14390,18 @@
 #define DT_N_S_soc_S_peripheral_40000000_S_spi_9000_P_overrun_character_EXISTS 1
 #define DT_N_S_soc_S_peripheral_40000000_S_spi_9000_P_easydma_maxcnt_bits 16
 #define DT_N_S_soc_S_peripheral_40000000_S_spi_9000_P_easydma_maxcnt_bits_EXISTS 1
+#define DT_N_S_soc_S_peripheral_40000000_S_spi_9000_P_cs_gpios_IDX_0_EXISTS 1
+#define DT_N_S_soc_S_peripheral_40000000_S_spi_9000_P_cs_gpios_IDX_0_PH DT_N_S_soc_S_peripheral_40000000_S_gpio_842500
+#define DT_N_S_soc_S_peripheral_40000000_S_spi_9000_P_cs_gpios_IDX_0_VAL_pin 25
+#define DT_N_S_soc_S_peripheral_40000000_S_spi_9000_P_cs_gpios_IDX_0_VAL_pin_EXISTS 1
+#define DT_N_S_soc_S_peripheral_40000000_S_spi_9000_P_cs_gpios_IDX_0_VAL_flags 1
+#define DT_N_S_soc_S_peripheral_40000000_S_spi_9000_P_cs_gpios_IDX_0_VAL_flags_EXISTS 1
+#define DT_N_S_soc_S_peripheral_40000000_S_spi_9000_P_cs_gpios_FOREACH_PROP_ELEM(fn) fn(DT_N_S_soc_S_peripheral_40000000_S_spi_9000, cs_gpios, 0)
+#define DT_N_S_soc_S_peripheral_40000000_S_spi_9000_P_cs_gpios_FOREACH_PROP_ELEM_SEP(fn, sep) fn(DT_N_S_soc_S_peripheral_40000000_S_spi_9000, cs_gpios, 0)
+#define DT_N_S_soc_S_peripheral_40000000_S_spi_9000_P_cs_gpios_FOREACH_PROP_ELEM_VARGS(fn, ...) fn(DT_N_S_soc_S_peripheral_40000000_S_spi_9000, cs_gpios, 0, __VA_ARGS__)
+#define DT_N_S_soc_S_peripheral_40000000_S_spi_9000_P_cs_gpios_FOREACH_PROP_ELEM_SEP_VARGS(fn, sep, ...) fn(DT_N_S_soc_S_peripheral_40000000_S_spi_9000, cs_gpios, 0, __VA_ARGS__)
+#define DT_N_S_soc_S_peripheral_40000000_S_spi_9000_P_cs_gpios_LEN 1
+#define DT_N_S_soc_S_peripheral_40000000_S_spi_9000_P_cs_gpios_EXISTS 1
 #define DT_N_S_soc_S_peripheral_40000000_S_spi_9000_P_status "okay"
 #define DT_N_S_soc_S_peripheral_40000000_S_spi_9000_P_status_STRING_UNQUOTED okay
 #define DT_N_S_soc_S_peripheral_40000000_S_spi_9000_P_status_STRING_TOKEN okay
