@@ -26,7 +26,7 @@ static const  struct device *gpio_dev;
 void toggle_cs_gpio(bool assert) 
 {
   gpio_dev = device_get_binding("GPIO_0");
-  gpio_pin_configure(gpio_dev, GPIO_PIN, GPIO_OUTPUT);
+//  gpio_pin_configure(gpio_dev, GPIO_PIN, GPIO_OUTPUT);
 //  gpio_pin_set(gpio_dev, GPIO_PIN, assert ? 0 :1);
 
 }
