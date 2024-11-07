@@ -168,7 +168,6 @@
 				pinctrl-0 = < &spi1_default >;
 				pinctrl-1 = < &spi1_sleep >;
 				pinctrl-names = "default", "sleep";
-				cs-gpios = < &gpio0 0xf 0x1 >;
 				bme280: bme280@0 {
 					compatible = "bosch,bme280";
 					reg = < 0x0 >;
@@ -565,7 +564,7 @@
 				status = "okay";
 				port = < 0x0 >;
 				gpiote-instance = < &gpiote >;
-				phandle = < 0x8 >;
+				phandle = < 0xc >;
 			};
 			gpio1: gpio@842800 {
 				compatible = "nordic,nrf-gpio";
@@ -651,7 +650,7 @@
 			};
 		};
 		uart1_default: uart1_default {
-			phandle = < 0x9 >;
+			phandle = < 0x8 >;
 			group1 {
 				psels = < 0x21 >;
 			};
@@ -661,7 +660,7 @@
 			};
 		};
 		uart1_sleep: uart1_sleep {
-			phandle = < 0xa >;
+			phandle = < 0x9 >;
 			group1 {
 				psels = < 0x21 >, < 0x10020 >;
 				low-power-enable;
@@ -681,13 +680,13 @@
 			};
 		};
 		spi4_default: spi4_default {
-			phandle = < 0xb >;
+			phandle = < 0xa >;
 			group1 {
 				psels = < 0x40008 >, < 0x6000a >, < 0x50009 >;
 			};
 		};
 		spi4_sleep: spi4_sleep {
-			phandle = < 0xc >;
+			phandle = < 0xb >;
 			group1 {
 				psels = < 0x40008 >, < 0x6000a >, < 0x50009 >;
 				low-power-enable;
