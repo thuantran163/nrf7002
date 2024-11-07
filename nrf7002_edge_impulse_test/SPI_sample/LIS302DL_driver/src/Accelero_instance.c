@@ -8,10 +8,19 @@
 /* STEP 3 - Retrieve the API-device structure */
 #define SPIOP	SPI_WORD_SET(8) | SPI_TRANSFER_MSB
 struct spi_dt_spec spispec = SPI_DT_SPEC_GET(DT_NODELABEL(bme280), SPIOP, 0);
+#define CS_PIN 			DT_GPIO_PIN(DT_NODELABEL(spi1), cs_gpios)
+#define CS_FLAGS		DT_GPIO_FLAGS(DT_NODELABEL(spi1), cs_gpios)
+const struct device *cs_gpio;
+
 
 
 int ACCELERO_IO_Read(uint8_t reg, uint8_t *data, uint8_t size)
 {
+	//cs_gpio = device_get_biding(DT_LABEL(DT_NODELABEL(gpio0)));
+	cs_gpio = device_get_binding("GPIO_0");
+	gpio_pin_configure(cs_gpio,CS_PIN, GPIO_OUTPUT_ACTIVE | CS_FLAGS);
+	gpio_pin_set(cs_gpio, CS_PIN, 0);
+	k_msleep(1);
 	int err;
 
 	/* STEP 4.1 - Set the transmit and receive buffers */
@@ -27,12 +36,18 @@ int ACCELERO_IO_Read(uint8_t reg, uint8_t *data, uint8_t size)
 		// LOG_ERR("spi_transceive_dt() failed, err: %d", err);
 		return err;
 	}
+	gpio_pin_set(cs_gpio, CS_PIN, 1);
+	k_msleep(1);
 
 	return 0;
 }
 
 int ACCELERO_IO_Write(uint8_t reg, uint8_t value)
 {
+	cs_gpio = device_get_binding("GPIO_0");
+	gpio_pin_configure(cs_gpio,CS_PIN, GPIO_OUTPUT_ACTIVE | CS_FLAGS);
+	gpio_pin_set(cs_gpio, CS_PIN, 0);
+	k_msleep(1);
 	int err;
 
 	/* STEP 5.1 - declare a tx buffer having register address and data */
@@ -47,6 +62,9 @@ int ACCELERO_IO_Write(uint8_t reg, uint8_t value)
 		// LOG_ERR("spi_write_dt() failed, err %d", err);
 		return err;
 	}
+
+	gpio_pin_set(cs_gpio, CS_PIN, 1);
+	k_msleep(1);
 
 	return 0;
 }
