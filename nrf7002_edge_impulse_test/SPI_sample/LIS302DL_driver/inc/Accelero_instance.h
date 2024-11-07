@@ -53,6 +53,7 @@ typedef struct
 // void ACCELERO_IO_Init(void);
 // void ACCELERO_IO_Write(uint8_t *pBuffer, uint8_t WriteAddr, uint16_t NumByteToWrite)
 // void ACCELERO_IO_Read(uint8_t *pBuffer, uint8_t ReadAddr, uint16_t NumByteToRead)
+void init_cs_gpio(void);
 int ACCELERO_IO_Read(uint8_t reg, uint8_t *data, uint8_t size);
 int ACCELERO_IO_Write(uint8_t reg, uint8_t value);
 

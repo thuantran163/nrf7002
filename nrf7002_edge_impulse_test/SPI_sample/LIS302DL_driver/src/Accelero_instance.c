@@ -11,14 +11,16 @@ struct spi_dt_spec spispec = SPI_DT_SPEC_GET(DT_NODELABEL(bme280), SPIOP, 0);
 #define CS_PIN 			DT_GPIO_PIN(DT_NODELABEL(spi1), cs_gpios)
 #define CS_FLAGS		DT_GPIO_FLAGS(DT_NODELABEL(spi1), cs_gpios)
 const struct device *cs_gpio;
+void init_cs_gpio(void){
+  cs_gpio = device_get_binding("GPIO_0");
+  gpio_pin_configure(cs_gpio,CS_PIN, GPIO_OUTPUT_ACTIVE | CS_FLAGS);
+}
 
 
 
 int ACCELERO_IO_Read(uint8_t reg, uint8_t *data, uint8_t size)
 {
 	//cs_gpio = device_get_biding(DT_LABEL(DT_NODELABEL(gpio0)));
-	cs_gpio = device_get_binding("GPIO_0");
-	gpio_pin_configure(cs_gpio,CS_PIN, GPIO_OUTPUT_ACTIVE | CS_FLAGS);
 	gpio_pin_set(cs_gpio, CS_PIN, 0);
 	k_msleep(1);
 	int err;
@@ -45,7 +47,7 @@ int ACCELERO_IO_Read(uint8_t reg, uint8_t *data, uint8_t size)
 int ACCELERO_IO_Write(uint8_t reg, uint8_t value)
 {
 //	cs_gpio = device_get_binding("GPIO_0");
-	gpio_pin_configure(cs_gpio,CS_PIN, GPIO_OUTPUT_ACTIVE | CS_FLAGS);
+//	gpio_pin_configure(cs_gpio,CS_PIN, GPIO_OUTPUT_ACTIVE | CS_FLAGS);
 	gpio_pin_set(cs_gpio, CS_PIN, 0);
 //	k_msleep(1);
 	int err;
