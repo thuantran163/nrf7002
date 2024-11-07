@@ -42,12 +42,12 @@ Section Headers:
   [18] noinit            NOBITS          20008bc0 00a850 001040 00  WA  0   0  8
   [19] .comment          PROGBITS        00000000 00a84c 000079 01  MS  0   0  1
   [20] .debug_aranges    PROGBITS        00000000 00a8c8 001bb0 00      0   0  8
-  [21] .debug_info       PROGBITS        00000000 00c478 0cf1d4 00      0   0  1
-  [22] .debug_abbrev     PROGBITS        00000000 0db64c 012c2d 00      0   0  1
-  [23] .debug_line       PROGBITS        00000000 0ee279 034a84 00      0   0  1
-  [24] .debug_frame      PROGBITS        00000000 122d00 0042d4 00      0   0  4
-  [25] .debug_str        PROGBITS        00000000 126fd4 011640 01  MS  0   0  1
-  [26] .debug_loc        PROGBITS        00000000 138614 02e457 00      0   0  1
+  [21] .debug_info       PROGBITS        00000000 00c478 0cf1da 00      0   0  1
+  [22] .debug_abbrev     PROGBITS        00000000 0db652 012c2d 00      0   0  1
+  [23] .debug_line       PROGBITS        00000000 0ee27f 034a84 00      0   0  1
+  [24] .debug_frame      PROGBITS        00000000 122d04 0042d4 00      0   0  4
+  [25] .debug_str        PROGBITS        00000000 126fd8 011640 01  MS  0   0  1
+  [26] .debug_loc        PROGBITS        00000000 138618 02e457 00      0   0  1
   [27] .debug_ranges     PROGBITS        00000000 166a70 00cac8 00      0   0  8
   [28] .ARM.attributes   ARM_ATTRIBUTES  00000000 173538 000036 00      0   0  1
   [29] .last_section     PROGBITS        00012768 00a848 000004 00  WA  0   0  1

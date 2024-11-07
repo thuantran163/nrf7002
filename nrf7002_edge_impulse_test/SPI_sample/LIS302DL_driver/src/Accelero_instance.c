@@ -10,7 +10,7 @@
 struct spi_dt_spec spispec = SPI_DT_SPEC_GET(DT_NODELABEL(bme280), SPIOP, 0);
 #define CS_PIN 			DT_GPIO_PIN(DT_NODELABEL(spi1), cs_gpios)
 #define CS_FLAGS		DT_GPIO_FLAGS(DT_NODELABEL(spi1), cs_gpios)
-const struct device *cs_gpio;
+struct device *cs_gpio;
 void init_cs_gpio(void){
   cs_gpio = device_get_binding("GPIO_0");
   gpio_pin_configure(cs_gpio,CS_PIN, GPIO_OUTPUT_ACTIVE | CS_FLAGS);
