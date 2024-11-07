@@ -29,7 +29,7 @@ int hello_world()
 
 
 	//LIS302DL_Init();
-	uint8_t test_value = LIS302DL_ReadID();
+	//uint8_t test_value = LIS302DL_ReadID();
 	//printf("\r WHO_AM_I reg: %x \r\n", test_value);
 
 	OutValue_TypeDef read_data ={
