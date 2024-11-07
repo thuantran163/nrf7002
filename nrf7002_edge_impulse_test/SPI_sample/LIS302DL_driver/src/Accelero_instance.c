@@ -35,7 +35,7 @@ int ACCELERO_IO_Read(uint8_t reg, uint8_t *data, uint8_t size)
 {
 //spi_dev = device_get_binding(SPI_DEV);
 
-//j  toggle_cs_gpio(true);
+  toggle_cs_gpio(true);
 	//cs_gpio = device_get_biding(DT_LABEL(DT_NODELABEL(gpio0)));
 //const  struct device *cs_gpio;
 //  cs_gpio = device_get_binding("GPIO_0");
@@ -57,7 +57,7 @@ int ACCELERO_IO_Read(uint8_t reg, uint8_t *data, uint8_t size)
 		// LOG_ERR("spi_transceive_dt() failed, err: %d", err);
 		return err;
 	}
-//  toggle_cs_gpio(false);
+  toggle_cs_gpio(false);
 //	gpio_pin_set(cs_gpio, CS_PIN, 1);
 	k_msleep(1);
 
