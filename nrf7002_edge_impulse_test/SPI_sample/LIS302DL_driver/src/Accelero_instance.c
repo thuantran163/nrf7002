@@ -11,7 +11,7 @@ struct spi_dt_spec spispec = SPI_DT_SPEC_GET(DT_NODELABEL(bme280), SPIOP, 0);
 #define CS_PIN 			DT_GPIO_PIN(DT_NODELABEL(spi1), cs_gpios)
 #define CS_FLAGS		DT_GPIO_FLAGS(DT_NODELABEL(spi1), cs_gpios)
 //#define CS_GPIO_PIN 16
-//#define SPI_DEV "SPI_1"
+#define SPI_DEV "SPI_1"
 #define GPIO_PORT_LABEL "GPIO_0"
 #define GPIO_PIN        25
 
@@ -19,24 +19,25 @@ struct spi_dt_spec spispec = SPI_DT_SPEC_GET(DT_NODELABEL(bme280), SPIOP, 0);
 static const struct spi_config spi_cfg ={
   .frequency = 1000000,
   .operation = SPI_OP_MODE_MASTER | SPI_TRANSFER_MSB | SPI_WORD_SET(8),
-  .cs = NULL,
+  .cs = CS_PIN,
+//  .max_freq = 1000000
 };
-static const struct device *spi_dev;
+//static const struct device *spi_dev =device_get_binding(spispec.bus->label);
 static const  struct device *gpio_dev; 
 void toggle_cs_gpio(bool assert) 
 {
   gpio_dev = device_get_binding("GPIO_0");
-//  gpio_pin_configure(gpio_dev, GPIO_PIN, GPIO_OUTPUT);
-//  gpio_pin_set(gpio_dev, GPIO_PIN, assert ? 0 :1);
+  gpio_pin_configure(gpio_dev, GPIO_PIN, GPIO_OUTPUT );
+  gpio_pin_set(gpio_dev, GPIO_PIN, assert ? 0 :1);
 
 }
 //const struct device *cs_gpio;
 
 int ACCELERO_IO_Read(uint8_t reg, uint8_t *data, uint8_t size)
 {
-//spi_dev = device_get_binding(SPI_DEV);
+  //spi_dev = device_get_binding(SPI_DEV);
 
-  toggle_cs_gpio(true);
+//  toggle_cs_gpio(true);
 	//cs_gpio = device_get_biding(DT_LABEL(DT_NODELABEL(gpio0)));
 //const  struct device *cs_gpio;
 //  cs_gpio = device_get_binding("GPIO_0");
@@ -52,13 +53,15 @@ int ACCELERO_IO_Read(uint8_t reg, uint8_t *data, uint8_t size)
 	struct spi_buf rx_spi_bufs 			= {.buf = data, .len = size};
 	struct spi_buf_set rx_spi_buf_set	= {.buffers = &rx_spi_bufs, .count = 2};
 
-	/* STEP 4.2 - Call the transceive function */
+	
+  /* STEP 4.2 - Call the transceive function */
+  //err = spi_transceive(spi_dev, &spi_cfg, &tx_spi_buf_set, &rx_spi_buf_set);
 	err = spi_transceive_dt(&spispec, &tx_spi_buf_set, &rx_spi_buf_set);
 	if (err < 0) {
 		// LOG_ERR("spi_transceive_dt() failed, err: %d", err);
 		return err;
 	}
-  //toggle_cs_gpio(false);
+//  toggle_cs_gpio(false);
 //	gpio_pin_set(cs_gpio, CS_PIN, 1);
 	k_msleep(1);
 

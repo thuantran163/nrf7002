@@ -107,3 +107,112 @@ events:
       warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
       
 ...
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineSystem.cmake:200 (message)"
+      - "CMakeLists.txt:49 (project)"
+    message: |
+      The target system is: Generic -  - cortex-m33+nofp
+      The host system is: Linux - 5.15.0-124-generic - x86_64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:49 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+      Compiler: /home/thuantran/workspace/01.Projects/01.Embedded/03.NordicSemicon/gcc-arm-none-eabi-9-2019-q4-major/bin/arm-none-eabi-gcc 
+      Build flags: -mcpu=cortex-m33+nofp
+      Id flags:  
+      
+      The output was:
+      1
+      /home/thuantran/workspace/01.Projects/01.Embedded/03.NordicSemicon/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/bin/ld: /home/thuantran/workspace/01.Projects/01.Embedded/03.NordicSemicon/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libc.a(lib_a-exit.o): in function `exit':
+      exit.c:(.text.exit+0x16): undefined reference to `_exit'
+      collect2: error: ld returned 1 exit status
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:49 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: /home/thuantran/workspace/01.Projects/01.Embedded/03.NordicSemicon/gcc-arm-none-eabi-9-2019-q4-major/bin/arm-none-eabi-gcc 
+      Build flags: -mcpu=cortex-m33+nofp
+      Id flags: -c 
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.o"
+      
+      The C compiler identification is GNU, found in:
+        /home/thuantran/workspace/01.Projects/01.Embedded/06.EdgeImpulse/temp/nrf7002/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/tfm/CMakeFiles/3.30.2/CompilerIdC/CMakeCCompilerId.o
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:49 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+      Compiler: /home/thuantran/workspace/01.Projects/01.Embedded/03.NordicSemicon/gcc-arm-none-eabi-9-2019-q4-major/bin/arm-none-eabi-g++ 
+      Build flags: -mcpu=cortex-m33+nofp
+      Id flags:  
+      
+      The output was:
+      1
+      /home/thuantran/workspace/01.Projects/01.Embedded/03.NordicSemicon/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/bin/ld: /home/thuantran/workspace/01.Projects/01.Embedded/03.NordicSemicon/gcc-arm-none-eabi-9-2019-q4-major/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libc.a(lib_a-exit.o): in function `exit':
+      exit.c:(.text.exit+0x16): undefined reference to `_exit'
+      collect2: error: ld returned 1 exit status
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:49 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: /home/thuantran/workspace/01.Projects/01.Embedded/03.NordicSemicon/gcc-arm-none-eabi-9-2019-q4-major/bin/arm-none-eabi-g++ 
+      Build flags: -mcpu=cortex-m33+nofp
+      Id flags: -c 
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.o"
+      
+      The CXX compiler identification is GNU, found in:
+        /home/thuantran/workspace/01.Projects/01.Embedded/06.EdgeImpulse/temp/nrf7002/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/tfm/CMakeFiles/3.30.2/CompilerIdCXX/CMakeCXXCompilerId.o
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:1192 (message)"
+      - "/usr/share/cmake-3.30/Modules/CMakeDetermineASMCompiler.cmake:135 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "CMakeLists.txt:49 (project)"
+    message: |
+      Checking whether the ASM compiler is GNU using "--version" matched "(GNU assembler)|(GCC)|(Free Software Foundation)":
+      arm-none-eabi-gcc (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM/arm-9-branch revision 277599]
+      Copyright (C) 2019 Free Software Foundation, Inc.
+      This is free software; see the source for copying conditions.  There is NO
+      warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+      
+...
