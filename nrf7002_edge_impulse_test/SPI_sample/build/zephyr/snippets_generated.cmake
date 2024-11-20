@@ -13,7 +13,7 @@
 set(SNIPPET_NAMES "cdc-acm-console" "nordic-ppr" "nordic-ppr-ram" "nrf70-debug" "nrf70-fw-patch-ext-flash" "nrf91-modem-trace-ext-flash" "nrf91-modem-trace-uart" "tfm-enable-share-uart" "xen_dom0")
 # The paths to all the snippet.yml files. One snippet
 # can have multiple snippet.yml files.
-set(SNIPPET_PATHS "/home/thuantran/ncs/toolchains/nrf/snippets/nrf70-debug/snippet.yml" "/home/thuantran/ncs/toolchains/nrf/snippets/nrf70-fw-patch-ext-flash/snippet.yml" "/home/thuantran/ncs/toolchains/nrf/snippets/nrf91-modem-trace-ext-flash/snippet.yml" "/home/thuantran/ncs/toolchains/nrf/snippets/nrf91-modem-trace-uart/snippet.yml" "/home/thuantran/ncs/toolchains/nrf/snippets/tfm-enable-share-uart/snippet.yml" "/home/thuantran/ncs/toolchains/zephyr/snippets/cdc-acm-console/snippet.yml" "/home/thuantran/ncs/toolchains/zephyr/snippets/nordic-ppr-ram/snippet.yml" "/home/thuantran/ncs/toolchains/zephyr/snippets/nordic-ppr/snippet.yml" "/home/thuantran/ncs/toolchains/zephyr/snippets/xen_dom0/snippet.yml")
+set(SNIPPET_PATHS "/root/ncs/nrf/snippets/nrf70-debug/snippet.yml" "/root/ncs/nrf/snippets/nrf70-fw-patch-ext-flash/snippet.yml" "/root/ncs/nrf/snippets/nrf91-modem-trace-ext-flash/snippet.yml" "/root/ncs/nrf/snippets/nrf91-modem-trace-uart/snippet.yml" "/root/ncs/nrf/snippets/tfm-enable-share-uart/snippet.yml" "/root/ncs/zephyr/snippets/cdc-acm-console/snippet.yml" "/root/ncs/zephyr/snippets/nordic-ppr-ram/snippet.yml" "/root/ncs/zephyr/snippets/nordic-ppr/snippet.yml" "/root/ncs/zephyr/snippets/xen_dom0/snippet.yml")
 
 # Create variable scope for snippets build variables
 zephyr_create_scope(snippets)

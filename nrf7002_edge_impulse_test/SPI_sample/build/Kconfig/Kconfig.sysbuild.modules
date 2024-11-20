@@ -1,5 +1,5 @@
-menu "nrf (/home/thuantran/ncs/toolchains/nrf)"
-osource "/home/thuantran/ncs/toolchains/nrf/sysbuild/Kconfig.sysbuild"
+menu "nrf (/root/ncs/nrf)"
+osource "/root/ncs/nrf/sysbuild/Kconfig.sysbuild"
 config ZEPHYR_NRF_MODULE
 	bool
 	default y

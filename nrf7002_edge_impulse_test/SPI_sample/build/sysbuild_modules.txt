@@ -1,1 +1,1 @@
-"nrf":"/home/thuantran/ncs/toolchains/nrf":"/home/thuantran/ncs/toolchains/nrf/sysbuild"
+"nrf":"/root/ncs/nrf":"/root/ncs/nrf/sysbuild"

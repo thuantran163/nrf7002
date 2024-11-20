@@ -1,1 +1,1 @@
-osource "/home/thuantran/ncs/toolchains/nrf/boards/shields/*/Kconfig.shield"
+osource "/root/ncs/nrf/boards/shields/*/Kconfig.shield"

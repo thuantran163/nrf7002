@@ -2,8 +2,8 @@
 _region_min_align = 32;
 MEMORY
     {
-    FLASH (rx) : ORIGIN = 0x8000, LENGTH = 0xf8000
-    RAM (wx) : ORIGIN = 0x20008000, LENGTH = 0x68000
+    FLASH (rx) : ORIGIN = (0x0 + 0x50000), LENGTH = (0x30000 - 0)
+    RAM (wx) : ORIGIN = 0x20040000, LENGTH = (192 * 1K)
    
     IDT_LIST (wx) : ORIGIN = 0xFFFF7FFF, LENGTH = 32K
     }
@@ -41,7 +41,7 @@ SECTIONS
  *(.iplt)
  }
    
- __rom_region_start = 0x8000;
+ __rom_region_start = (0x0 + 0x50000);
     rom_start :
  {
 HIDDEN(__rom_start_address = .);
@@ -142,6 +142,25 @@ ztest :
  shell_subcmds_area : SUBALIGN(4) { _shell_subcmds_list_start = .; KEEP(*(SORT_BY_NAME(._shell_subcmds.static.*))); _shell_subcmds_list_end = .; } > FLASH
  shell_dynamic_subcmds_area : SUBALIGN(4) { _shell_dynamic_subcmds_list_start = .; KEEP(*(SORT_BY_NAME(._shell_dynamic_subcmds.static.*))); _shell_dynamic_subcmds_list_end = .; } > FLASH
  cfb_font_area : SUBALIGN(4) { _cfb_font_list_start = .; KEEP(*(SORT_BY_NAME(._cfb_font.static.*))); _cfb_font_list_end = .; } > FLASH
+ tdata : ALIGN_WITH_INPUT
+ {
+  *(.tdata .tdata.* .gnu.linkonce.td.*);
+ } > FLASH
+ tbss : ALIGN_WITH_INPUT
+ {
+  *(.tbss .tbss.* .gnu.linkonce.tb.* .tcommon);
+ } > FLASH
+ PROVIDE(__tdata_start = LOADADDR(tdata));
+ PROVIDE(__tdata_size = SIZEOF(tdata));
+ PROVIDE(__tdata_end = __tdata_start + __tdata_size);
+ PROVIDE(__tdata_align = ALIGNOF(tdata));
+ PROVIDE(__tbss_start = ADDR(tbss));
+ PROVIDE(__tbss_size = SIZEOF(tbss));
+ PROVIDE(__tbss_end = __tbss_start + __tbss_size);
+ PROVIDE(__tbss_align = ALIGNOF(tbss));
+ PROVIDE(__tls_start = __tdata_start);
+ PROVIDE(__tls_end = __tbss_end);
+ PROVIDE(__tls_size = __tbss_end - __tdata_start);
     rodata :
  {
  *(.rodata)
@@ -160,7 +179,7 @@ ztest :
  *(.igot)
  }
    
- . = 0x20008000;
+ . = 0x20040000;
  . = ALIGN(_region_min_align);
  _image_ram_start = .;
 .ramfunc : ALIGN_WITH_INPUT
@@ -231,7 +250,7 @@ __ramfunc_load_start = LOADADDR(.ramfunc);
         *(".noinit.*")
  *(".kernel_noinit.*")
         } > RAM AT > RAM
-    __kernel_ram_end = 0x20008000 + 0x68000;
+    __kernel_ram_end = 0x20040000 + (192 * 1K);
     __kernel_ram_size = __kernel_ram_end - __kernel_ram_start;
 .intList :
 {

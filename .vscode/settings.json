@@ -1,0 +1,6 @@
+{
+    "nrf-connect.toolchain.path": "${nrf-connect.toolchain:2.6.2}",
+    "nrf-connect.applications": [
+        "${workspaceFolder}/nrf7002_edge_impulse_test/SPI_sample"
+    ]
+}

@@ -1,4 +1,4 @@
-# Install script for directory: /home/thuantran/ncs/toolchains/modules/hal/cmsis/CMSIS
+# Install script for directory: /root/ncs/modules/hal/cmsis/CMSIS
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,11 +34,11 @@ endif()
 
 # Set path to fallback-tool for dependency-resolution.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/home/thuantran/workspace/01.Projects/01.Embedded/03.NordicSemicon/gcc-arm-none-eabi-9-2019-q4-major/bin/arm-none-eabi-objdump")
+  set(CMAKE_OBJDUMP "/root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/arm-zephyr-eabi-objdump")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/thuantran/workspace/01.Projects/01.Embedded/06.EdgeImpulse/temp/nrf7002/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/modules/cmsis/cmsis/CMSIS/Core/cmake_install.cmake")
+  include("/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/modules/cmsis/cmsis/CMSIS/Core/cmake_install.cmake")
 endif()
 

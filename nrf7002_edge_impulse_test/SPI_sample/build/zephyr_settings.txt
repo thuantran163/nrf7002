@@ -6,6 +6,6 @@
 # and/or the west manifest file.
 #
 # See the Modules guide for more information.
-"BOARD_ROOT":"/home/thuantran/ncs/toolchains/nrf"
-"DTS_ROOT":"/home/thuantran/ncs/toolchains/nrf"
-"MODULE_EXT_ROOT":"/home/thuantran/ncs/toolchains/nrf"
+"BOARD_ROOT":"/root/ncs/nrf"
+"DTS_ROOT":"/root/ncs/nrf"
+"MODULE_EXT_ROOT":"/root/ncs/nrf"

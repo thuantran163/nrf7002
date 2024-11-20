@@ -449,7 +449,7 @@
 				pinctrl-0 = < &qspi_default >;
 				pinctrl-1 = < &qspi_sleep >;
 				pinctrl-names = "default", "sleep";
-				nrf700x: nrf7002@1 {
+				nrf700x: nrf7001@1 {
 					status = "okay";
 					compatible = "nordic,nrf700x-qspi";
 					reg = < 0x1 >;
@@ -796,7 +796,7 @@
 			gpios = < &gpio1 0x1 0x0 >, < &gpio1 0x0 0x0 >, < &gpio1 0x5 0x0 >, < &gpio1 0x4 0x0 >;
 		};
 	};
-	nrf_radio_coex: nrf7002-coex {
+	nrf_radio_coex: nrf7001-coex {
 		status = "okay";
 		compatible = "nordic,nrf700x-coex";
 		req-gpios = < &gpio0 0x1c 0x0 >;
@@ -822,8 +822,8 @@
 		sram0_ns: image_ns@20040000 {
 			reg = < 0x20040000 0x30000 >;
 		};
-		sram0_shared: memory@20070000 {
-			reg = < 0x20070000 0x10000 >;
+		sram0_shared: memory@20070010 {
+			reg = < 0x20070010 0x10000 >;
 			phandle = < 0x16 >;
 		};
 	};
@@ -833,11 +833,5 @@
 		max-pwr-2g-dsss = < 0x54 >;
 		max-pwr-2g-mcs0 = < 0x40 >;
 		max-pwr-2g-mcs7 = < 0x40 >;
-		max-pwr-5g-low-mcs0 = < 0x24 >;
-		max-pwr-5g-low-mcs7 = < 0x24 >;
-		max-pwr-5g-mid-mcs0 = < 0x2c >;
-		max-pwr-5g-mid-mcs7 = < 0x2c >;
-		max-pwr-5g-high-mcs0 = < 0x34 >;
-		max-pwr-5g-high-mcs7 = < 0x34 >;
 	};
 };
