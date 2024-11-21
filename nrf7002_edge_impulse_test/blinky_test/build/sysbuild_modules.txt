@@ -1,0 +1,1 @@
+"nrf":"/root/ncs/nrf":"/root/ncs/nrf/sysbuild"
