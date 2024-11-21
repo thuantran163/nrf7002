@@ -8,8 +8,8 @@
 /* STEP 3 - Retrieve the API-device structure */
 #define SPIOP	SPI_WORD_SET(8) | SPI_TRANSFER_MSB
 struct spi_dt_spec spispec = SPI_DT_SPEC_GET(DT_NODELABEL(bme280), SPIOP, 0);
-#define CS_PIN 			DT_GPIO_PIN(DT_NODELABEL(spi1), cs_gpios)
-#define CS_FLAGS		DT_GPIO_FLAGS(DT_NODELABEL(spi1), cs_gpios)
+//#define CS_PIN 			DT_GPIO_PIN(DT_NODELABEL(spi1), cs_gpios)
+//#define CS_FLAGS		DT_GPIO_FLAGS(DT_NODELABEL(spi1), cs_gpios)
 //#define CS_GPIO_PIN 16
 #define SPI_DEV "SPI_1"
 #define GPIO_PORT_LABEL "GPIO_0"
@@ -19,7 +19,7 @@ struct spi_dt_spec spispec = SPI_DT_SPEC_GET(DT_NODELABEL(bme280), SPIOP, 0);
 static const struct spi_config spi_cfg ={
   .frequency = 1000000,
   .operation = SPI_OP_MODE_MASTER | SPI_TRANSFER_MSB | SPI_WORD_SET(8),
-  .cs = CS_PIN,
+  //.cs = CS_PIN,
 //  .max_freq = 1000000
 };
 //static const struct device *spi_dev =device_get_binding(spispec.bus->label);
