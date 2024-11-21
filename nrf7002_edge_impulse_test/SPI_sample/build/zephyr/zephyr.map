@@ -348,9 +348,9 @@ Discarded input sections
  .text.LIS302DL_Read_Data
                 0x0000000000000000       0x38 app/libapp.a(LIS302DL.c.obj)
  .rodata.hello_world.str1.1
-                0x0000000000000000       0x43 app/libapp.a(LIS302DL.c.obj)
+                0x0000000000000000       0x35 app/libapp.a(LIS302DL.c.obj)
  .text.hello_world
-                0x0000000000000000       0x68 app/libapp.a(LIS302DL.c.obj)
+                0x0000000000000000       0x5c app/libapp.a(LIS302DL.c.obj)
  .text.LIS302DL_InterruptConfig
                 0x0000000000000000        0x2 app/libapp.a(LIS302DL.c.obj)
  .text.LIS302DL_LowpowerCmd
@@ -362,13 +362,13 @@ Discarded input sections
  .data.Lis302dlDrv
                 0x0000000000000000       0x34 app/libapp.a(LIS302DL.c.obj)
  .rodata        0x0000000000000000        0x1 app/libapp.a(LIS302DL.c.obj)
- .debug_info    0x0000000000000000     0x10f2 app/libapp.a(LIS302DL.c.obj)
+ .debug_info    0x0000000000000000     0x10db app/libapp.a(LIS302DL.c.obj)
  .debug_abbrev  0x0000000000000000      0x43e app/libapp.a(LIS302DL.c.obj)
  .debug_loc     0x0000000000000000      0x793 app/libapp.a(LIS302DL.c.obj)
  .debug_aranges
                 0x0000000000000000       0xd8 app/libapp.a(LIS302DL.c.obj)
  .debug_ranges  0x0000000000000000       0xe0 app/libapp.a(LIS302DL.c.obj)
- .debug_line    0x0000000000000000      0x6a1 app/libapp.a(LIS302DL.c.obj)
+ .debug_line    0x0000000000000000      0x6a0 app/libapp.a(LIS302DL.c.obj)
  .debug_str     0x0000000000000000      0xd47 app/libapp.a(LIS302DL.c.obj)
  .comment       0x0000000000000000       0x21 app/libapp.a(LIS302DL.c.obj)
  .debug_frame   0x0000000000000000      0x208 app/libapp.a(LIS302DL.c.obj)
