@@ -15,7 +15,7 @@
 #include "LIS302DL.h"
 LOG_MODULE_REGISTER(Lesson5_Exercise1, LOG_LEVEL_INF);
 
-const struct gpio_dt_spec ledspec = GPIO_DT_SPEC_GET(DT_NODELABEL(led0), gpios);
+//const struct gpio_dt_spec ledspec = GPIO_DT_SPEC_GET(DT_NODELABEL(led0), gpios);
 
 /* STEP 3 - Retrieve the API-device structure */
 // #define SPIOP	SPI_WORD_SET(8) | SPI_TRANSFER_MSB
@@ -27,11 +27,11 @@ int main(void)
 {
 	int err;
 	
-	err = gpio_is_ready_dt(&ledspec);
-	if (!err) {
-		LOG_ERR("Error: GPIO device is not ready, err: %d", err);
-		return 0;
-	}
+//	err = gpio_is_ready_dt(&ledspec);
+//	if (!err) {
+//		LOG_ERR("Error: GPIO device is not ready, err: %d", err);
+//		return 0;
+//	}
 
 	/* STEP 10.1 - Check if SPI and GPIO devices are ready */
 	// err = spi_is_ready_dt(&spispec);
@@ -40,7 +40,7 @@ int main(void)
 		return 0;
 	}
 
-	gpio_pin_configure_dt(&ledspec, GPIO_OUTPUT_ACTIVE);
+//	gpio_pin_configure_dt(&ledspec, GPIO_OUTPUT_ACTIVE);
 	
 	/* STEP 10.2 - Read calibration data */
 
@@ -54,7 +54,7 @@ int main(void)
     hello_world();
 		/* STEP 10.4 - Continuously read sensor samples and toggle led */
 		// bme_read_sample();
-		gpio_pin_toggle_dt(&ledspec);
+//		gpio_pin_toggle_dt(&ledspec);
 		k_msleep(1);
 	}
 
