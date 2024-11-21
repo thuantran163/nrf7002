@@ -20,7 +20,7 @@ static const struct spi_cs_control spi_cs = {
 };
 
 static const struct spi_config spi_cfg = {
-    .frequency = 1000000, /* 1 MHz */
+    .frequency = 10000, /* 1 MHz */
     .operation = SPI_WORD_SET(8) | SPI_TRANSFER_MSB | SPI_OP_MODE_MASTER,
     .slave = 0,
     .cs = &spi_cs,
