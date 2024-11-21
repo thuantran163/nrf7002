@@ -1,0 +1,91 @@
+#include "spi.h"
+#include <zephyr/drivers/gpio.h>
+#include <zephyr/drivers/spi.h>
+#include <zephyr/device.h>
+#include <zephyr/logging/log.h>
+
+LOG_MODULE_REGISTER(spi_driver, LOG_LEVEL_DBG);
+
+static const struct gpio_dt_spec cs_gpio = GPIO_DT_SPEC_GET(DT_NODELABEL(gpio0), 25);
+
+// SPI configuration
+struct spi_config spi_cfg = {
+    .frequency = SPI_FREQ,
+    .operation = SPI_OP_MODE_MASTER | SPI_WORD_SET(8) | SPI_TRANSFER_MSB | SPI_MODE_CPOL | SPI_MODE_CPHA,
+    .slave = 0,  // Master mode
+    .cs = NULL,  // Use CS pin manually
+};
+
+// SPI device pointer
+const struct device *spi_dev = DEVICE_DT_GET(DT_NODELABEL(spi0));
+
+int spi_init(void) {
+    // Initialize SPI device
+    if (!device_is_ready(spi_dev)) {
+        LOG_ERR("SPI device not ready");
+        return -ENODEV;
+    }
+
+    // Initialize CS pin (active low)
+    if (!device_is_ready(cs_gpio.port)) {
+        LOG_ERR("CS GPIO port not ready");
+        return -ENODEV;
+    }
+
+    int ret = gpio_pin_configure_dt(&cs_gpio, GPIO_OUTPUT_LOW);
+    if (ret < 0) {
+        LOG_ERR("Failed to configure CS pin");
+        return ret;
+    }
+
+    return 0;
+}
+
+int spi_transmit(const uint8_t *tx_buf, uint8_t *rx_buf, size_t len) {
+    int ret;
+
+    // Assert CS (active low)
+    ret = gpio_pin_set_dt(&cs_gpio, 0); // Set CS low
+    if (ret < 0) {
+        LOG_ERR("Failed to set CS low");
+        return ret;
+    }
+
+    // Create tx_buf and rx_buf for the SPI transaction
+    struct spi_buf tx_b = {
+        .buf = (void *)tx_buf,
+        .len = len,
+    };
+    struct spi_buf rx_b = {
+        .buf = rx_buf,
+        .len = len,
+    };
+
+    // Create SPI transfer descriptors
+    struct spi_buf_set tx_set = {
+        .buffers = &tx_b,
+        .count = 1,
+    };
+    struct spi_buf_set rx_set = {
+        .buffers = &rx_b,
+        .count = 1,
+    };
+
+    // Perform SPI transfer (transmit and receive)
+    ret = spi_transceive(spi_dev, &spi_cfg, &tx_set, &rx_set);
+    if (ret < 0) {
+        LOG_ERR("SPI transfer failed");
+        // Deassert CS after transfer failure
+        gpio_pin_set_dt(&cs_gpio, 1); // Set CS high
+        return ret;
+    }
+
+    // Deassert CS (active low)
+    ret = gpio_pin_set_dt(&cs_gpio, 1); // Set CS high
+    if (ret < 0) {
+        LOG_ERR("Failed to set CS high");
+        return ret;
+    }
+
+    return 0;
+}

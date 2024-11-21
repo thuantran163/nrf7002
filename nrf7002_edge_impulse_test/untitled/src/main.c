@@ -1,97 +1,96 @@
 #include <zephyr/kernel.h>
-#include <zephyr/logging/log.h>
-/* STEP 1.2 - Include the header files for SPI, GPIO and devicetree */
 #include <zephyr/device.h>
-#include <zephyr/devicetree.h>
-#include <zephyr/drivers/gpio.h>
 #include <zephyr/drivers/spi.h>
-#include <zephyr/sys/printk.h>
-#include <zephyr/sys/util.h>
+#include <zephyr/drivers/gpio.h>
+#include <zephyr/logging/log.h>
 
-#define SPI_DEVICE_NODE DT_NODELABEL(my_spi_device)
-#define SPI_DEV_NAME DT_LABEL(SPI_DEVICE_NODE)
+/* Logging module (optional, for debug) */
+LOG_MODULE_REGISTER(spi_example, LOG_LEVEL_INF);
 
-static const struct device *spi_dev;
-static const struct device *gpio_dev;
-static struct spi_config spi_cfg;
-static const struct gpio_dt_spec cs_gpio = GPIO_DT_SPEC_GET(SPI_DEVICE_NODE, cs_gpios);
+/* SPI and GPIO configuration */
+#define SPI_DEV DT_LABEL(DT_NODELABEL(spi3)) /* SPI3 or your chosen SPI peripheral */
+#define CS_GPIO_PORT DT_GPIO_LABEL(DT_NODELABEL(spi3), cs_gpios)
+#define CS_GPIO_PIN DT_GPIO_PIN(DT_NODELABEL(spi3), cs_gpios)
+#define CS_GPIO_FLAGS DT_GPIO_FLAGS(DT_NODELABEL(spi3), cs_gpios)
 
-// Initialize SPI device and configure CS GPIO pin
-static int spi_init(void)
+/* SPI Configuration */
+static const struct spi_cs_control spi_cs = {
+    .gpio = GPIO_DT_SPEC_GET(DT_NODELABEL(spi3), cs_gpios),
+    .delay = 0,
+};
+
+static const struct spi_config spi_cfg = {
+    .frequency = 1000000, /* 1 MHz */
+    .operation = SPI_WORD_SET(8) | SPI_TRANSFER_MSB | SPI_OP_MODE_MASTER,
+    .slave = 0,
+    .cs = &spi_cs,
+};
+
+/* SPI device */
+const struct device *spi_dev;
+
+/* Initialize SPI and CS GPIO */
+void spi_init(void)
 {
-    // Get the SPI device binding
-    spi_dev = device_get_binding(SPI_DEV_NAME);
-    if (!spi_dev) {
-        printk("Error: Failed to get SPI device\n");
-        return -ENODEV;
+    /* Get SPI device */
+    spi_dev = DEVICE_DT_GET(DT_NODELABEL(spi3));
+    if (!device_is_ready(spi_dev)) {
+        LOG_ERR("SPI device not ready");
+        return;
     }
 
-    // Get the GPIO device binding
-    gpio_dev = device_get_binding(DT_LABEL(DT_NODELABEL(gpio0)));
-    if (!gpio_dev) {
-        printk("Error: Failed to get GPIO device\n");
-        return -ENODEV;
+    /* Configure CS GPIO */
+    const struct gpio_dt_spec cs_spec = GPIO_DT_SPEC_GET(DT_NODELABEL(spi3), cs_gpios);
+    if (!device_is_ready(cs_spec.port)) {
+        LOG_ERR("CS GPIO device not ready");
+        return;
     }
 
-    // Configure CS pin as output (active-high by default)
-    int ret = gpio_pin_configure_dt(&cs_gpio, GPIO_OUTPUT_ACTIVE);
-    if (ret) {
-        printk("Error: Failed to configure CS GPIO pin\n");
-        return ret;
-    }
+    gpio_pin_configure(cs_spec.port, cs_spec.pin, GPIO_OUTPUT_INACTIVE | cs_spec.dt_flags);
 
-    // SPI configuration (CPOL = 0, CPHA = 0, MSB first)
-    spi_cfg.frequency = 1000000;  // 1 MHz
-    spi_cfg.operation = SPI_OP_MODE_MASTER | SPI_WORD_SET(8) | SPI_TRANSFER_MSB;
-    spi_cfg.slave = 0;  // Master mode
-
-    return 0;
+    LOG_INF("SPI initialized with CS active low");
 }
 
-// SPI transmission function (with active-low CS)
-static int spi_transmit(uint8_t *tx_buf, size_t len)
+/* Perform SPI transfer */
+void spi_transfer(void)
 {
-    struct spi_buf tx_bufs[] = {
-        {
-            .buf = tx_buf,
-            .len = len
-        }
+    uint8_t tx_data[] = {0xAA, 0xBB, 0xCC}; /* Data to send */
+    uint8_t rx_data[sizeof(tx_data)] = {0};
+
+    const struct spi_buf tx_buf = {
+        .buf = tx_data,
+        .len = sizeof(tx_data),
+    };
+    const struct spi_buf rx_buf = {
+        .buf = rx_data,
+        .len = sizeof(rx_data),
     };
 
-    struct spi_buf_set tx = {
-        .buffers = tx_bufs,
-        .count = ARRAY_SIZE(tx_bufs)
+    const struct spi_buf_set tx = {
+        .buffers = &tx_buf,
+        .count = 1,
+    };
+    const struct spi_buf_set rx = {
+        .buffers = &rx_buf,
+        .count = 1,
     };
 
-    // Activate CS (CS is active-low, so set to low to select the device)
-    gpio_pin_set_dt(&cs_gpio, 0);  // CS low
-
-    // Perform the SPI transfer
-    int ret = spi_transceive(spi_dev, &spi_cfg, &tx, NULL);
-    if (ret) {
-        printk("SPI transfer failed\n");
+    if (spi_transceive(spi_dev, &spi_cfg, &tx, &rx) == 0) {
+        LOG_INF("SPI Transfer successful");
+        LOG_HEXDUMP_INF(rx_data, sizeof(rx_data), "Received Data");
+    } else {
+        LOG_ERR("SPI Transfer failed");
     }
-
-    // Deactivate CS (CS is active-low, so set to high to deselect the device)
-    gpio_pin_set_dt(&cs_gpio, 1);  // CS high
-
-    return ret;
 }
 
 void main(void)
 {
-    int ret = spi_init();
-    if (ret) {
-        printk("SPI initialization failed\n");
-        return;
-    }
+    /* Initialize SPI */
+    spi_init();
 
-    uint8_t tx_data[] = {0x01, 0x02, 0x03};  // Example data to transmit
-
-    ret = spi_transmit(tx_data, sizeof(tx_data));
-    if (ret) {
-        printk("SPI transmission failed\n");
-    } else {
-        printk("SPI transmission successful\n");
+    /* Perform a transfer */
+    while (1) {
+        spi_transfer();
+        k_sleep(K_MSEC(1000)); /* Delay 1 second */
     }
 }

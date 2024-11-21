@@ -1,8 +1,52 @@
 /* STEP 2.1 - Add the SPI peripheral to spi1 */
 &i2c0 {	status = "disabled";};
-&spi0 {	status = "disabled";};
+//&spi3 {
+	//compatible = "nordic,nrf-spim";
+    //status = "okay";
+    //sck-pin = <17>;  /* SPI Clock Pin */
+    //mosi-pin = <18>; /* SPI MOSI Pin */
+    //miso-pin = <19>; /* SPI MISO Pin */
+    //cs-gpios = <&gpio0 20 GPIO_ACTIVE_LOW>;
+//};
+//&gpio0 {
+//    status = "okay";
+//    pinctrl-0 = <&gpio0_pins>;
+//    pinctrl-names = "default";
+//    cs-gpios = <&gpio0 25 GPIO_ACTIVE_LOW>;  // CS pin, active low
+//};
+
+&pinctrl {
+    spi3_default: spi3_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 17)>, /* SCK on pin 17 */
+                    <NRF_PSEL(SPIM_MOSI, 0, 18)>, /* MOSI on pin 18 */
+                    <NRF_PSEL(SPIM_MISO, 0, 19)>; /* MISO on pin 19 */
+        };
+    };
+
+    spi3_sleep: spi3_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 0xFFFFFFFF)>, /* Disable SCK */
+                    <NRF_PSEL(SPIM_MOSI, 0, 0xFFFFFFFF)>, /* Disable MOSI */
+                    <NRF_PSEL(SPIM_MISO, 0, 0xFFFFFFFF)>; /* Disable MISO */
+        };
+    };
+};
+
+&spi3 {
+    compatible = "nordic,nrf-spim";
+    status = "okay";
+    pinctrl-0 = <&spi3_default>;
+    pinctrl-1 = <&spi3_sleep>;
+    pinctrl-names = "default", "sleep";
+    cs-gpios = <&gpio0 20 GPIO_ACTIVE_LOW>; /* Chip Select on GPIO pin 20 */
+};
+
+
 &i2c1 {	status = "disabled";};
-	
+
+/*
+
 &spi1 {
 	my_spi_device: my_spi_device@9000 {
       #address-cells = < 0x1 >;
@@ -17,13 +61,13 @@
       interrupts = <0xc 0x1>;
       easydma-maxcnt-bits = < 0x10 >;
       max-frequency= <0x7a1200>;
-		  cs-gpios = <&gpio0 5 GPIO_ACTIVE_LOW>;
+	  cs-gpios = <&gpio0 5 GPIO_ACTIVE_LOW>;
 	};
 };
 
-/* STEP 2.2 - Change the pin configuration */
 &pinctrl {
 	spi1_default: spi1_default {
+	cs-gpios = <&gpio0 5 GPIO_ACTIVE_LOW>;
 		group1 {
 				psels = <NRF_PSEL(SPIM_SCK, 0, 6)>,
 						<NRF_PSEL(SPIM_MOSI, 0, 7)>,
@@ -44,7 +88,6 @@
     label = "GPIO_0";
     status = "okay";
 };
-/* 
 &gpio1 {
 	status = "okay";
     my_gpio: gpio_label {

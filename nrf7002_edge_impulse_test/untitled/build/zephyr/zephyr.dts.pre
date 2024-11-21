@@ -1289,49 +1289,35 @@ zephyr_udc0: &usbd {
 # 1 "./nrf7002dk_nrf5340_cpuapp_ns.overlay" 1
 
 &i2c0 { status = "disabled";};
-&spi0 { status = "disabled";};
-&i2c1 { status = "disabled";};
-
-&spi1 {
- my_spi_device: my_spi_device@9000 {
-      #address-cells = < 0x1 >;
-      #size-cells = < 0x0 >;
-     compatible = "nordic,nrf-spim";
-      label = "my_spi_device";
-    status = "okay";
-    pinctrl-0 = <&spi1_default>;
-    pinctrl-1 = <&spi1_sleep>;
-    pinctrl-names = "default", "sleep";
-      reg = <0x9000 0x1000>;
-      interrupts = <0xc 0x1>;
-      easydma-maxcnt-bits = < 0x10 >;
-      max-frequency= <0x7a1200>;
-    cs-gpios = <&gpio0 5 (1 << 0)>;
- };
-};
-
-
+# 18 "./nrf7002dk_nrf5340_cpuapp_ns.overlay"
 &pinctrl {
- spi1_default: spi1_default {
-  group1 {
-    psels = <((((((0) * 32U) + (6)) & 0x7FU) << 0U) | ((4U & 0xFFFFU) << 16U))>,
-      <((((((0) * 32U) + (7)) & 0x7FU) << 0U) | ((5U & 0xFFFFU) << 16U))>,
-      <((((((0) * 32U) + (26)) & 0x7FU) << 0U) | ((6U & 0xFFFFU) << 16U))>;
-  };
- };
+    spi3_default: spi3_default {
+        group1 {
+            psels = <((((((0) * 32U) + (17)) & 0x7FU) << 0U) | ((4U & 0xFFFFU) << 16U))>,
+                    <((((((0) * 32U) + (18)) & 0x7FU) << 0U) | ((5U & 0xFFFFU) << 16U))>,
+                    <((((((0) * 32U) + (19)) & 0x7FU) << 0U) | ((6U & 0xFFFFU) << 16U))>;
+        };
+    };
 
- spi1_sleep: spi1_sleep {
-  group1 {
-    psels = <((((((0) * 32U) + (6)) & 0x7FU) << 0U) | ((4U & 0xFFFFU) << 16U))>,
-      <((((((0) * 32U) + (7)) & 0x7FU) << 0U) | ((5U & 0xFFFFU) << 16U))>,
-      <((((((0) * 32U) + (26)) & 0x7FU) << 0U) | ((6U & 0xFFFFU) << 16U))>;
-    low-power-enable;
-  };
- };
+    spi3_sleep: spi3_sleep {
+        group1 {
+            psels = <((((((0) * 32U) + (0xFFFFFFFF)) & 0x7FU) << 0U) | ((4U & 0xFFFFU) << 16U))>,
+                    <((((((0) * 32U) + (0xFFFFFFFF)) & 0x7FU) << 0U) | ((5U & 0xFFFFU) << 16U))>,
+                    <((((((0) * 32U) + (0xFFFFFFFF)) & 0x7FU) << 0U) | ((6U & 0xFFFFU) << 16U))>;
+        };
+    };
 };
-&gpio0 {
-    label = "GPIO_0";
+
+&spi3 {
+    compatible = "nordic,nrf-spim";
     status = "okay";
+    pinctrl-0 = <&spi3_default>;
+    pinctrl-1 = <&spi3_sleep>;
+    pinctrl-names = "default", "sleep";
+    cs-gpios = <&gpio0 20 (1 << 0)>;
 };
+
+
+&i2c1 { status = "disabled";};
 # 0 "<command-line>" 2
 # 1 "/root/ncs/zephyr/misc/empty_file.c"
