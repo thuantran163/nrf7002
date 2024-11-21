@@ -1,0 +1,56 @@
+/* STEP 2.1 - Add the SPI peripheral to spi1 */
+&i2c0 {	status = "disabled";};
+&spi0 {	status = "disabled";};
+&i2c1 {	status = "disabled";};
+	
+&spi1 {
+	my_spi_device: my_spi_device@9000 {
+      #address-cells = < 0x1 >;
+      #size-cells = < 0x0 >;
+	    compatible = "nordic,nrf-spim";
+      label = "my_spi_device";
+		  status = "okay";
+		  pinctrl-0 = <&spi1_default>;
+		  pinctrl-1 = <&spi1_sleep>;
+		  pinctrl-names = "default", "sleep";
+      reg = <0x9000 0x1000>;
+      interrupts = <0xc 0x1>;
+      easydma-maxcnt-bits = < 0x10 >;
+      max-frequency= <0x7a1200>;
+		  cs-gpios = <&gpio0 5 GPIO_ACTIVE_LOW>;
+	};
+};
+
+/* STEP 2.2 - Change the pin configuration */
+&pinctrl {
+	spi1_default: spi1_default {
+		group1 {
+				psels = <NRF_PSEL(SPIM_SCK, 0, 6)>,
+						<NRF_PSEL(SPIM_MOSI, 0, 7)>,
+						<NRF_PSEL(SPIM_MISO, 0, 26)>;
+		};
+	};
+
+	spi1_sleep: spi1_sleep {
+		group1 {
+				psels = <NRF_PSEL(SPIM_SCK, 0, 6)>,
+						<NRF_PSEL(SPIM_MOSI, 0, 7)>,
+						<NRF_PSEL(SPIM_MISO, 0, 26)>;
+				low-power-enable;
+		};
+	};
+};
+&gpio0 {
+    label = "GPIO_0";
+    status = "okay";
+};
+/* 
+&gpio1 {
+	status = "okay";
+    my_gpio: gpio_label {
+		gpio-pin = <1>;
+		gpio-output-high;
+        gpios = <&gpio1 1 GPIO_OUTPUT_HIGH>;
+    };
+};
+*/
