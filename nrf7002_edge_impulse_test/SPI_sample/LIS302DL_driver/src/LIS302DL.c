@@ -24,7 +24,7 @@ int hello_world()
 {
  // uint8_t test_data;
  // LIS302DL_Read_WhoAmIRegister(test_data);
- // printf("Hello_world\r\n");
+ printf("Hello_world\r\n");
 
 
 

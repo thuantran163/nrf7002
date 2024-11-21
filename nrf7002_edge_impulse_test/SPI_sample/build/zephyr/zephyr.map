@@ -229,6 +229,8 @@ zephyr/kernel/libkernel.a(banner.c.obj)
                               zephyr/libzephyr.a(timeutil.c.obj) (errno)
 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_string_strnlen.c.o)
                               zephyr/libzephyr.a(cbprintf_complete.c.obj) (strnlen)
+/root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_puts.c.o)
+                              app/libapp.a(LIS302DL.c.obj) (puts)
 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_snprintf.c.o)
                               zephyr/libzephyr.a(log_output.c.obj) (snprintf)
 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_vfprintf.c.o)
@@ -348,9 +350,9 @@ Discarded input sections
  .text.LIS302DL_Read_Data
                 0x0000000000000000       0x38 app/libapp.a(LIS302DL.c.obj)
  .rodata.hello_world.str1.1
-                0x0000000000000000       0x35 app/libapp.a(LIS302DL.c.obj)
+                0x0000000000000000       0x42 app/libapp.a(LIS302DL.c.obj)
  .text.hello_world
-                0x0000000000000000       0x5c app/libapp.a(LIS302DL.c.obj)
+                0x0000000000000000       0x68 app/libapp.a(LIS302DL.c.obj)
  .text.LIS302DL_InterruptConfig
                 0x0000000000000000        0x2 app/libapp.a(LIS302DL.c.obj)
  .text.LIS302DL_LowpowerCmd
@@ -362,14 +364,14 @@ Discarded input sections
  .data.Lis302dlDrv
                 0x0000000000000000       0x34 app/libapp.a(LIS302DL.c.obj)
  .rodata        0x0000000000000000        0x1 app/libapp.a(LIS302DL.c.obj)
- .debug_info    0x0000000000000000     0x10db app/libapp.a(LIS302DL.c.obj)
- .debug_abbrev  0x0000000000000000      0x43e app/libapp.a(LIS302DL.c.obj)
+ .debug_info    0x0000000000000000     0x1101 app/libapp.a(LIS302DL.c.obj)
+ .debug_abbrev  0x0000000000000000      0x43f app/libapp.a(LIS302DL.c.obj)
  .debug_loc     0x0000000000000000      0x793 app/libapp.a(LIS302DL.c.obj)
  .debug_aranges
                 0x0000000000000000       0xd8 app/libapp.a(LIS302DL.c.obj)
  .debug_ranges  0x0000000000000000       0xe0 app/libapp.a(LIS302DL.c.obj)
- .debug_line    0x0000000000000000      0x6a0 app/libapp.a(LIS302DL.c.obj)
- .debug_str     0x0000000000000000      0xd47 app/libapp.a(LIS302DL.c.obj)
+ .debug_line    0x0000000000000000      0x6ad app/libapp.a(LIS302DL.c.obj)
+ .debug_str     0x0000000000000000      0xd5b app/libapp.a(LIS302DL.c.obj)
  .comment       0x0000000000000000       0x21 app/libapp.a(LIS302DL.c.obj)
  .debug_frame   0x0000000000000000      0x208 app/libapp.a(LIS302DL.c.obj)
  .text          0x0000000000000000        0x0 zephyr/libzephyr.a(cbprintf_packaged.c.obj)
@@ -1599,6 +1601,11 @@ Discarded input sections
  .text          0x0000000000000000        0x0 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_string_strnlen.c.o)
  .data          0x0000000000000000        0x0 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_string_strnlen.c.o)
  .bss           0x0000000000000000        0x0 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_string_strnlen.c.o)
+ .text          0x0000000000000000        0x0 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_puts.c.o)
+ .data          0x0000000000000000        0x0 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_puts.c.o)
+ .bss           0x0000000000000000        0x0 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_puts.c.o)
+ .text.puts     0x0000000000000000       0x40 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_puts.c.o)
+ .debug_frame   0x0000000000000000       0x30 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_puts.c.o)
  .text          0x0000000000000000        0x0 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_snprintf.c.o)
  .data          0x0000000000000000        0x0 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_snprintf.c.o)
  .bss           0x0000000000000000        0x0 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_snprintf.c.o)
@@ -4758,39 +4765,41 @@ noinit          0x0000000020040b38     0x1040
  .ARM.attributes
                 0x000000000000171c       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_string_strnlen.c.o)
  .ARM.attributes
-                0x0000000000001752       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_snprintf.c.o)
+                0x0000000000001752       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_puts.c.o)
  .ARM.attributes
-                0x0000000000001788       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_vfprintf.c.o)
+                0x0000000000001788       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_snprintf.c.o)
  .ARM.attributes
-                0x00000000000017be       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_vfscanf.c.o)
+                0x00000000000017be       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_vfprintf.c.o)
  .ARM.attributes
-                0x00000000000017f4       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_atod_ryu.c.o)
+                0x00000000000017f4       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_vfscanf.c.o)
  .ARM.attributes
-                0x000000000000182a       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_atof_ryu.c.o)
+                0x000000000000182a       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_atod_ryu.c.o)
  .ARM.attributes
-                0x0000000000001860       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_dtoa_ryu.c.o)
+                0x0000000000001860       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_atof_ryu.c.o)
  .ARM.attributes
-                0x0000000000001896       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_ryu_divpow2.c.o)
+                0x0000000000001896       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_dtoa_ryu.c.o)
  .ARM.attributes
-                0x00000000000018cc       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_ryu_log10.c.o)
+                0x00000000000018cc       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_ryu_divpow2.c.o)
  .ARM.attributes
-                0x0000000000001902       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_ryu_log2pow5.c.o)
+                0x0000000000001902       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_ryu_log10.c.o)
  .ARM.attributes
-                0x0000000000001938       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_ryu_pow5bits.c.o)
+                0x0000000000001938       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_ryu_log2pow5.c.o)
  .ARM.attributes
-                0x000000000000196e       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_ryu_table.c.o)
+                0x000000000000196e       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_ryu_pow5bits.c.o)
  .ARM.attributes
-                0x00000000000019a4       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_ryu_umul128.c.o)
+                0x00000000000019a4       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_ryu_table.c.o)
  .ARM.attributes
-                0x00000000000019da       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_string_strchr.c.o)
+                0x00000000000019da       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_ryu_umul128.c.o)
  .ARM.attributes
-                0x0000000000001a10       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_dtox_engine.c.o)
+                0x0000000000001a10       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_string_strchr.c.o)
  .ARM.attributes
-                0x0000000000001a46       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_fgetc.c.o)
+                0x0000000000001a46       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_dtox_engine.c.o)
  .ARM.attributes
-                0x0000000000001a7c       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_filestrput.c.o)
+                0x0000000000001a7c       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_fgetc.c.o)
  .ARM.attributes
-                0x0000000000001ab2       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_ungetc.c.o)
+                0x0000000000001ab2       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_filestrput.c.o)
+ .ARM.attributes
+                0x0000000000001ae8       0x36 /root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/../lib/gcc/../../picolibc/arm-zephyr-eabi/lib/thumb/v8-m.main/nofp/libc.a(libc_tinystdio_ungetc.c.o)
  *(SORT_BY_ALIGNMENT(.gnu.attributes))
 
 .last_section   0x000000000005a800        0x4
