@@ -13,7 +13,7 @@ struct spi_dt_spec spispec = SPI_DT_SPEC_GET(DT_NODELABEL(bme280), SPIOP, 0);
 //#define CS_GPIO_PIN 16
 #define SPI_DEV "SPI_1"
 #define GPIO_PORT_LABEL "GPIO_0"
-#define GPIO_PIN        25
+#define GPIO_PIN        04
 
 
 static const struct spi_config spi_cfg ={
@@ -37,7 +37,6 @@ int ACCELERO_IO_Read(uint8_t reg, uint8_t *data, uint8_t size)
 {
   //spi_dev = device_get_binding(SPI_DEV);
 
-//  toggle_cs_gpio(true);
 	//cs_gpio = device_get_biding(DT_LABEL(DT_NODELABEL(gpio0)));
 //const  struct device *cs_gpio;
 //  cs_gpio = device_get_binding("GPIO_0");
@@ -56,12 +55,13 @@ int ACCELERO_IO_Read(uint8_t reg, uint8_t *data, uint8_t size)
 	
   /* STEP 4.2 - Call the transceive function */
   //err = spi_transceive(spi_dev, &spi_cfg, &tx_spi_buf_set, &rx_spi_buf_set);
+	toggle_cs_gpio(true);
 	err = spi_transceive_dt(&spispec, &tx_spi_buf_set, &rx_spi_buf_set);
 	if (err < 0) {
 		// LOG_ERR("spi_transceive_dt() failed, err: %d", err);
 		return err;
 	}
-//  toggle_cs_gpio(false);
+	toggle_cs_gpio(false);
 //	gpio_pin_set(cs_gpio, CS_PIN, 1);
 	k_msleep(1);
 
