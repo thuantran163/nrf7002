@@ -1,0 +1,16 @@
+{
+  "board": "nrf7002dk_nrf5340_cpuapp",
+  "boardRevision": "",
+  "boardDir": "/home/thuantran/ncs/v2.6.2/nrf/boards/arm/nrf7002dk_nrf5340",
+  "shouldBuild": true,
+  "optimizations": "none",
+  "cmakeArgs": [],
+  "confFiles": [
+    "prj.conf"
+  ],
+  "buildDirectory": "build",
+  "kconfigFragments": [],
+  "snippets": [],
+  "dtcOverlays": [],
+  "extraDtcOverlays": []
+}

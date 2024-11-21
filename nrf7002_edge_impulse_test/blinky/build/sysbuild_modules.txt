@@ -1,0 +1,1 @@
+"nrf":"/home/thuantran/ncs/v2.6.2/nrf":"/home/thuantran/ncs/v2.6.2/nrf/sysbuild"
