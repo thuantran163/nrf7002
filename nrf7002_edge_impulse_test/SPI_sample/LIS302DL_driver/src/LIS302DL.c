@@ -101,8 +101,10 @@ ACCELERO_IO_Write(assign_address, assign_value);
 
 int LIS302DL_Read_WhoAmIRegister(uint8_t *return_value)
 {
+ uint8_t data;
  uint8_t address = WHO_AM_I_BASE;
- Get_DataBlock(address, return_value);
+ Get_DataBlock(address, &data);
+ *return_value = data;
 	//ACCELERO_IO_Read(return_value, address, sizeof(return_value));
  return 1;
 }
