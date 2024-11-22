@@ -1,5 +1,5 @@
 empty_file.o: /root/ncs/zephyr/misc/empty_file.c \
- /root/ncs/nrf/boards/arm/nrf7002dk_nrf7001_nrf5340/nrf7002dk_nrf7001_nrf5340_cpuapp_ns.dts \
+ /root/ncs/nrf/boards/arm/nrf7002dk_nrf5340/nrf7002dk_nrf5340_cpuapp_ns.dts \
  /root/ncs/zephyr/dts/arm/nordic/nrf5340_cpuappns_qkaa.dtsi \
  /root/ncs/zephyr/dts/common/mem.h \
  /root/ncs/zephyr/dts/arm/nordic/nrf5340_cpuappns.dtsi \
@@ -26,7 +26,7 @@ empty_file.o: /root/ncs/zephyr/misc/empty_file.c \
  /root/ncs/zephyr/dts/arm/nordic/override.dtsi \
  /root/ncs/zephyr/dts/arm/nordic/nrf5340_cpuapp_peripherals.dtsi \
  /root/ncs/zephyr/dts/arm/nordic/nrf5340_cpuapp_ipc.dtsi \
- /root/ncs/nrf/boards/arm/nrf7002dk_nrf7001_nrf5340/nrf5340_cpuapp_common.dts \
- /root/ncs/nrf/boards/arm/nrf7002dk_nrf7001_nrf5340/nrf5340_cpuapp_common-pinctrl.dtsi \
- /root/ncs/nrf/boards/arm/nrf7002dk_nrf7001_nrf5340/nrf5340_cpuapp_partition_conf.dts \
- /root/ncs/nrf/boards/arm/nrf7002dk_nrf7001_nrf5340/nrf5340_shared_sram_planning_conf.dts
+ /root/ncs/nrf/boards/arm/nrf7002dk_nrf5340/nrf5340_cpuapp_common.dts \
+ /root/ncs/nrf/boards/arm/nrf7002dk_nrf5340/nrf5340_cpuapp_common-pinctrl.dtsi \
+ /root/ncs/nrf/boards/arm/nrf7002dk_nrf5340/nrf5340_cpuapp_partition_conf.dts \
+ /root/ncs/nrf/boards/arm/nrf7002dk_nrf5340/nrf5340_shared_sram_planning_conf.dts
