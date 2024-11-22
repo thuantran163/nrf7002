@@ -40,7 +40,7 @@ int hello_world()
 		.OUT_Z =0
 	};
 	LIS302DL_Read_Data(&read_data);
-  printk("Hello world\r\n");
+  //printk("Hello world\r\n");
 
 
 
