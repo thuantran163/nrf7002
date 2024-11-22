@@ -25,7 +25,7 @@ int hello_world()
  //printf("Hello_world\r\n");
   LIS302DL_Init();
   //init_cs_gpio();
-	//uint8_t test_value = LIS302DL_ReadID();
+	uint8_t test_value = LIS302DL_ReadID();
 	//printf("\r WHO_AM_I reg: %x \r\n", test_value);
   //uint8_t test_data;
   //LIS302DL_Read_WhoAmIRegister(test_data);
@@ -273,7 +273,7 @@ uint8_t LIS302DL_ReadID(void)
 
   /* Configure the low level interface */
   //ACCELERO_IO_Init();
-
+  Get_DataBlock(WHO_AM_I_BASE, &tmp);
   /* Read WHO_AM_I register */
   //ACCELERO_IO_Read(&tmp, WHO_AM_I_BASE, 1);
   
