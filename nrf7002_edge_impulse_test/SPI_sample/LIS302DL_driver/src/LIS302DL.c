@@ -56,7 +56,7 @@ int Get_DataBlock (uint8_t assign_address, uint8_t *assign_value)
  //uint8_t tx_data[2] = { assign_address , 0};
  // printf("transmit_address: %x\r\n", tx_data[0]);
  uint8_t get_value[2];
- ACCELERO_IO_Read(assign_address, assign_value, sizeof(assign_value));
+ ACCELERO_IO_Read(assign_address, get_value, sizeof(get_value));
 //  HAL_GPIO_WritePin(GPIOE, GPIO_PIN_3, GPIO_PIN_RESET);
 //  HAL_SPI_TransmitReceive(&hspi1, tx_data,get_value,2,1000);
 //  HAL_Delay(1);
@@ -242,8 +242,8 @@ void LIS302DL_Init(void)
 	};
 	int err =0;
 	err = LIS302DL_Set_CTRL_REG1(reg1);
-//
-//  LIS302DL_Read_CTRL_REG1(&reg1);
+
+  LIS302DL_Read_CTRL_REG1(&reg1);
 //
 //	CTRL_REG2_TypeDef reg2 = {
 //		.SIM =1,
