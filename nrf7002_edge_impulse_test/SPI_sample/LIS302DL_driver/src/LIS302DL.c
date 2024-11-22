@@ -23,15 +23,10 @@ ACCELERO_DrvTypeDef Lis302dlDrv =
 int hello_world()
 {
  //printf("Hello_world\r\n");
-
-
-
-	LIS302DL_Init();
-
+	//LIS302DL_Init();
   //init_cs_gpio();
 	//uint8_t test_value = LIS302DL_ReadID();
 	//printf("\r WHO_AM_I reg: %x \r\n", test_value);
-
   //uint8_t test_data;
   //LIS302DL_Read_WhoAmIRegister(test_data);
 	OutValue_TypeDef read_data ={
@@ -40,10 +35,8 @@ int hello_world()
 		.OUT_Z =0
 	};
 	LIS302DL_Read_Data(&read_data);
+  
   //printk("Hello world\r\n");
-
-
-
   k_sleep(K_SECONDS(1)) ;
 	//printk("\n Xdata: %d\r\n", read_data.OUT_X);
 	//printk("\n Ydata: %d\r\n", read_data.OUT_Y);
