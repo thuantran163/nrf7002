@@ -34,7 +34,7 @@ int hello_world()
 		.OUT_Y =0,
 		.OUT_Z =0
 	};
-	//LIS302DL_Read_Data(&read_data);
+	LIS302DL_Read_Data(&read_data);
   
   //printk("Hello world\r\n");
   k_sleep(K_SECONDS(1)) ;
