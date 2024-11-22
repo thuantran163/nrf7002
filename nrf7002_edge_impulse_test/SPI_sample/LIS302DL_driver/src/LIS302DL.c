@@ -22,8 +22,6 @@ ACCELERO_DrvTypeDef Lis302dlDrv =
 
 int hello_world()
 {
- // uint8_t test_data;
- // LIS302DL_Read_WhoAmIRegister(test_data);
  //printf("Hello_world\r\n");
 
 
@@ -34,21 +32,23 @@ int hello_world()
 	//uint8_t test_value = LIS302DL_ReadID();
 	//printf("\r WHO_AM_I reg: %x \r\n", test_value);
 
+  uint8_t test_data;
+  LIS302DL_Read_WhoAmIRegister(test_data);
 	OutValue_TypeDef read_data ={
 		.OUT_X =0,
 		.OUT_Y =0,
 		.OUT_Z =0
 	};
-	LIS302DL_Read_Data(&read_data);
+	//LIS302DL_Read_Data(&read_data);
   //printk("Hello world\r\n");
 
 
 
   k_sleep(K_SECONDS(1)) ;
-	printk("\n Xdata: %d\r\n", read_data.OUT_X);
-	printk("\n Ydata: %d\r\n", read_data.OUT_Y);
-	printk("\n Zdata: %d\r\n", read_data.OUT_Z);
-	printk("%d,%d,%d\r\n", read_data.OUT_X, read_data.OUT_Y,read_data.OUT_Z);
+	//printk("\n Xdata: %d\r\n", read_data.OUT_X);
+	//printk("\n Ydata: %d\r\n", read_data.OUT_Y);
+	//printk("\n Zdata: %d\r\n", read_data.OUT_Z);
+	//printk("%d,%d,%d\r\n", read_data.OUT_X, read_data.OUT_Y,read_data.OUT_Z);
  // HAL_Delay(10);
  return 0;
 };
@@ -102,7 +102,7 @@ ACCELERO_IO_Write(assign_address, assign_value);
 int LIS302DL_Read_WhoAmIRegister(uint8_t *return_value)
 {
  uint8_t address = WHO_AM_I_BASE;
- //Get_DataBlock(address, return_value);
+ Get_DataBlock(address, return_value);
 	//ACCELERO_IO_Read(return_value, address, sizeof(return_value));
  return 1;
 }
