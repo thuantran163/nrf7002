@@ -23,7 +23,7 @@ ACCELERO_DrvTypeDef Lis302dlDrv =
 int hello_world()
 {
  //printf("Hello_world\r\n");
-	//LIS302DL_Init();
+  LIS302DL_Init();
   //init_cs_gpio();
 	//uint8_t test_value = LIS302DL_ReadID();
 	//printf("\r WHO_AM_I reg: %x \r\n", test_value);
@@ -73,8 +73,8 @@ int Set_DataBlock (uint8_t assign_address, uint8_t assign_value)
 //  MX_GPIO_Init();
 //  MX_SPI1_Init();
 
- uint8_t tx_data[2] = {assign_address, assign_value};
- uint8_t return_value[2];
+uint8_t tx_data[2] = {assign_address, assign_value};
+uint8_t return_value[2];
 ACCELERO_IO_Write(assign_address, assign_value);
  // printf( "\n transmit address: %x \r\n", tx_data[0]);
  // printf( "\n transmit data: %x \r\n",    tx_data[1]);
@@ -177,7 +177,7 @@ int LIS302DL_Set_CTRL_REG3(CTRL_REG3_TypeDef reg)
 
 int LIS302DL_Read_CTRL_REG3(CTRL_REG3_TypeDef *reg)
 {
- uint8_t address = CTRL_REG3_BASE;
+  uint8_t address = CTRL_REG3_BASE;
 	uint8_t return_value = 0;
 	Get_DataBlock(address, &return_value);
 	////ACCELERO_IO_Read(&return_value, address, sizeof(return_value));
