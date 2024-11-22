@@ -28,18 +28,18 @@ int hello_world()
 
 	LIS302DL_Init();
 
-//  init_cs_gpio();
+  //init_cs_gpio();
 	//uint8_t test_value = LIS302DL_ReadID();
 	//printf("\r WHO_AM_I reg: %x \r\n", test_value);
 
-  uint8_t test_data;
-  LIS302DL_Read_WhoAmIRegister(test_data);
+  //uint8_t test_data;
+  //LIS302DL_Read_WhoAmIRegister(test_data);
 	OutValue_TypeDef read_data ={
 		.OUT_X =0,
 		.OUT_Y =0,
 		.OUT_Z =0
 	};
-	//LIS302DL_Read_Data(&read_data);
+	LIS302DL_Read_Data(&read_data);
   //printk("Hello world\r\n");
 
 
