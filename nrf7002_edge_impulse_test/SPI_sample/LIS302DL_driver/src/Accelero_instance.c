@@ -84,7 +84,7 @@ int ACCELERO_IO_Write(uint8_t reg, uint8_t value)
 	//uint8_t tx_buf[] = {(reg & 0x7F), value};	
 	uint8_t tx_buf[] = {reg , value};	
 	struct spi_buf 		tx_spi_buf 		= {.buf = tx_buf, .len = sizeof(tx_buf)};
-	struct spi_buf_set 	tx_spi_buf_set	= {.buffers = &tx_spi_buf, .count = 2};
+	struct spi_buf_set 	tx_spi_buf_set	= {.buffers = &tx_spi_buf, .count =1 };
 
 	/* STEP 5.2 - call the spi_write_dt function with SPISPEC to write buffers */
 	err = spi_write_dt(&spispec, &tx_spi_buf_set);
