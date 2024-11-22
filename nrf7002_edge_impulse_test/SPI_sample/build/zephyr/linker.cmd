@@ -2,8 +2,8 @@
 _region_min_align = 32;
 MEMORY
     {
-    FLASH (rx) : ORIGIN = (0x0 + 0x50000), LENGTH = (0x30000 - 0)
-    RAM (wx) : ORIGIN = 0x20040000, LENGTH = (192 * 1K)
+    FLASH (rx) : ORIGIN = 0x8000, LENGTH = 0xf8000
+    RAM (wx) : ORIGIN = 0x20008000, LENGTH = 0x68000
    
     IDT_LIST (wx) : ORIGIN = 0xFFFF7FFF, LENGTH = 32K
     }
@@ -41,7 +41,7 @@ SECTIONS
  *(.iplt)
  }
    
- __rom_region_start = (0x0 + 0x50000);
+ __rom_region_start = 0x8000;
     rom_start :
  {
 HIDDEN(__rom_start_address = .);
@@ -179,7 +179,7 @@ ztest :
  *(.igot)
  }
    
- . = 0x20040000;
+ . = 0x20008000;
  . = ALIGN(_region_min_align);
  _image_ram_start = .;
 .ramfunc : ALIGN_WITH_INPUT
@@ -250,7 +250,7 @@ __ramfunc_load_start = LOADADDR(.ramfunc);
         *(".noinit.*")
  *(".kernel_noinit.*")
         } > RAM AT > RAM
-    __kernel_ram_end = 0x20040000 + (192 * 1K);
+    __kernel_ram_end = 0x20008000 + 0x68000;
     __kernel_ram_size = __kernel_ram_end - __kernel_ram_start;
 /DISCARD/ :
 {

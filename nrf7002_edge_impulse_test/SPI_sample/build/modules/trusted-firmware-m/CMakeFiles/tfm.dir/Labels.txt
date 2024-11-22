@@ -1,0 +1,13 @@
+# Target labels
+ tfm
+# Source files and their labels
+/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/modules/trusted-firmware-m/CMakeFiles/tfm
+/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/modules/trusted-firmware-m/CMakeFiles/tfm.rule
+/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/modules/trusted-firmware-m/CMakeFiles/tfm-complete.rule
+/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/modules/trusted-firmware-m/tfm-prefix/src/tfm-stamp/tfm-build.rule
+/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/modules/trusted-firmware-m/tfm-prefix/src/tfm-stamp/tfm-configure.rule
+/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/modules/trusted-firmware-m/tfm-prefix/src/tfm-stamp/tfm-download.rule
+/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/modules/trusted-firmware-m/tfm-prefix/src/tfm-stamp/tfm-install.rule
+/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/modules/trusted-firmware-m/tfm-prefix/src/tfm-stamp/tfm-mkdir.rule
+/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/modules/trusted-firmware-m/tfm-prefix/src/tfm-stamp/tfm-patch.rule
+/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/modules/trusted-firmware-m/tfm-prefix/src/tfm-stamp/tfm-update.rule

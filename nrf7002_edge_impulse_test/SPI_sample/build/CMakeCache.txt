@@ -21,10 +21,10 @@ APPLICATION_BINARY_DIR:PATH=/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_te
 APPLICATION_SOURCE_DIR:PATH=/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample
 
 //Selected board
-BOARD:STRING=nrf7002dk_nrf7001_nrf5340_cpuapp_ns
+BOARD:STRING=nrf7002dk_nrf5340_cpuapp_ns
 
 //Path to a file.
-BOARD_DIR:PATH=/root/ncs/nrf/boards/arm/nrf7002dk_nrf7001_nrf5340
+BOARD_DIR:PATH=/root/ncs/nrf/boards/arm/nrf7002dk_nrf5340
 
 //Support board extensions
 BOARD_EXTENSIONS:BOOL=ON
@@ -42,7 +42,7 @@ BYPRODUCT_KERNEL_ELF_NAME:FILEPATH=/workspace/01.Emotiv/nrf7002/nrf7002_edge_imp
 BYPRODUCT_KERNEL_HEX_NAME:FILEPATH=/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/zephyr/zephyr.hex
 
 //Selected board
-CACHED_BOARD:STRING=nrf7002dk_nrf7001_nrf5340_cpuapp_ns
+CACHED_BOARD:STRING=nrf7002dk_nrf5340_cpuapp_ns
 
 //If desired, you can build the application usingthe configuration
 // settings specified in an alternate .conf file using this parameter.
@@ -130,8 +130,8 @@ CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
 //Flags used by the CXX compiler during RELWITHDEBINFO builds.
 CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
-//Path to a program.
-CMAKE_C_COMPILER:FILEPATH=/root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc
+//C compiler
+CMAKE_C_COMPILER:STRING=/root/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
@@ -390,6 +390,9 @@ ZEPHYR_BASE:PATH=/root/ncs/zephyr
 //Path to Zephyr git repository index file
 ZEPHYR_GIT_INDEX:PATH=/root/ncs/zephyr/.git/index
 
+//Path to merged image in Intel Hex format
+ZEPHYR_RUNNER_CONFIG_KERNEL_HEX:STRING=
+
 //Zephyr SDK install directory
 ZEPHYR_SDK_INSTALL_DIR:PATH=/root/zephyr-sdk-0.17.0
 
@@ -486,6 +489,8 @@ CMAKE_CXX_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
 CMAKE_CXX_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_CXX_FLAGS_RELWITHDEBINFO
 CMAKE_CXX_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_C_COMPILER
+CMAKE_C_COMPILER-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_C_COMPILER_AR
 CMAKE_C_COMPILER_AR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_C_COMPILER_RANLIB
@@ -542,7 +547,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=137
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=149
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -608,8 +613,6 @@ _Python3_EXECUTABLE:INTERNAL=/root/zephyrproject/.venv/bin/python3
 //Python3 Properties
 _Python3_INTERPRETER_PROPERTIES:INTERNAL=Python;3;12;3;64;<none>;cpython-312-x86_64-linux-gnu.so;abi3;/usr/lib/python3.12;/root/zephyrproject/.venv/lib/python3.12;/root/zephyrproject/.venv/lib/python3.12/site-packages;/root/zephyrproject/.venv/lib/python3.12/site-packages
 _Python3_INTERPRETER_SIGNATURE:INTERNAL=a51d6818b9ffd297c4ebd690acd8568e
-//Interpreter reason failure
-_Python3_Interpreter_REASON_FAILURE:INTERNAL=
 //NumPy reason failure
 _Python3_NumPy_REASON_FAILURE:INTERNAL=
 

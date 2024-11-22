@@ -39,6 +39,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/zephyr/boards/boards/arm/nrf7002dk_nrf7001_nrf5340_cpuapp_ns/cmake_install.cmake")
+  include("/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/zephyr/boards/boards/arm/nrf7002dk_nrf5340_cpuapp_ns/cmake_install.cmake")
 endif()
 

@@ -8,9 +8,9 @@
 /root/ncs/modules/lib/picolibc/zephyr/Kconfig
 /root/ncs/modules/lib/zscilib/Kconfig.zscilib
 /root/ncs/nrf/Kconfig.nrf
-/root/ncs/nrf/boards/arm/nrf7002dk_nrf7001_nrf5340/Kconfig
-/root/ncs/nrf/boards/arm/nrf7002dk_nrf7001_nrf5340/Kconfig.board
-/root/ncs/nrf/boards/arm/nrf7002dk_nrf7001_nrf5340/Kconfig.defconfig
+/root/ncs/nrf/boards/arm/nrf7002dk_nrf5340/Kconfig
+/root/ncs/nrf/boards/arm/nrf7002dk_nrf5340/Kconfig.board
+/root/ncs/nrf/boards/arm/nrf7002dk_nrf5340/Kconfig.defconfig
 /root/ncs/nrf/boards/shields/nrf21540ek/Kconfig.shield
 /root/ncs/nrf/boards/shields/nrf7002eb/Kconfig.shield
 /root/ncs/nrf/boards/shields/nrf7002ek/Kconfig.shield
