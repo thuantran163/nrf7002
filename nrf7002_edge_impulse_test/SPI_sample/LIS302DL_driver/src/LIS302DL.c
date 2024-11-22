@@ -52,8 +52,8 @@ int Get_DataBlock (uint8_t assign_address, uint8_t *assign_value)
 //  MX_SPI1_Init();
 //  MX_GPIO_Init();
 
- uint8_t tx_data[2] = { assign_address | 0x80, 0};
- //uint8_t tx_data[2] = { assign_address , 0};
+ //uint8_t tx_data[2] = { assign_address | 0x80, 0};
+ uint8_t tx_data[2] = { assign_address , 0};
  // printf("transmit_address: %x\r\n", tx_data[0]);
  uint8_t get_value[2];
  ACCELERO_IO_Read(tx_data, get_value, sizeof(get_value));
