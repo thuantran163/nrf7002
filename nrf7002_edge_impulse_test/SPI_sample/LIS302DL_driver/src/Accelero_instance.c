@@ -45,14 +45,14 @@ int ACCELERO_IO_Read(uint8_t reg, uint8_t *data, uint8_t size)
 //	gpio_pin_set(cs_gpio, CS_PIN, 0);
 	k_msleep(1);
 	int err;
-
+	uint16_t rx_data;
 	/* STEP 4.1 - Set the transmit and receive buffers */
 	//uint8_t tx_buffer = reg;
 	uint8_t tx_buffer = 0x8F;
 	struct spi_buf tx_spi_buf			= {.buf = (void *)&tx_buffer, .len = 1};
 	struct spi_buf_set tx_spi_buf_set 	= {.buffers = &tx_spi_buf, .count = 1};
 	//struct spi_buf rx_spi_bufs 			= {.buf = data, .len = size};
-	struct spi_buf rx_spi_bufs 			= {.buf = data, .len = 2};
+	struct spi_buf rx_spi_bufs 			= {.buf = rx_data, .len = 2};
 	struct spi_buf_set rx_spi_buf_set	= {.buffers = &rx_spi_bufs, .count = 1};
 
 	
