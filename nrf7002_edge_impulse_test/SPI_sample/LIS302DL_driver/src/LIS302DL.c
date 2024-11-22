@@ -242,24 +242,24 @@ void LIS302DL_Init(void)
 	};
 	int err =0;
 	err = LIS302DL_Set_CTRL_REG1(reg1);
-
-  LIS302DL_Read_CTRL_REG1(&reg1);
-
-	CTRL_REG2_TypeDef reg2 = {
-		.SIM =1,
-		.BOOT = 0,
-		.FDS = 0,
-		.HP_FF_WU = 0b00,
-		.HP_coeff = 0b00
-	};
-	err = LIS302DL_Set_CTRL_REG2(reg2);
-	CTRL_REG3_TypeDef reg3 = {
-		.IHL = 0,
-		.PP_OD = 0,
-		.I1CFG = 0b00,
-		.I2CFG = 0b00
-	};
-	err =LIS302DL_Set_CTRL_REG3(reg3);
+//
+//  LIS302DL_Read_CTRL_REG1(&reg1);
+//
+//	CTRL_REG2_TypeDef reg2 = {
+//		.SIM =1,
+//		.BOOT = 0,
+//		.FDS = 0,
+//		.HP_FF_WU = 0b00,
+//		.HP_coeff = 0b00
+//	};
+//	err = LIS302DL_Set_CTRL_REG2(reg2);
+//	CTRL_REG3_TypeDef reg3 = {
+//		.IHL = 0,
+//		.PP_OD = 0,
+//		.I1CFG = 0b00,
+//		.I2CFG = 0b00
+//	};
+//	err =LIS302DL_Set_CTRL_REG3(reg3);
 }
 
 void LIS302DL_DeInit(void)
