@@ -37,7 +37,7 @@ int hello_world()
 	LIS302DL_Read_Data(&read_data);
   
   //printk("Hello world\r\n");
-  k_sleep(K_SECONDS(1)) ;
+  //k_sleep(K_SECONDS(1)) ;
 	//printk("\n Xdata: %d\r\n", read_data.OUT_X);
 	//printk("\n Ydata: %d\r\n", read_data.OUT_Y);
 	//printk("\n Zdata: %d\r\n", read_data.OUT_Z);
