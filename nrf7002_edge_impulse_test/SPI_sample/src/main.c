@@ -54,8 +54,8 @@ int main(void)
     hello_world();
 		/* STEP 10.4 - Continuously read sensor samples and toggle led */
 		// bme_read_sample();
-		gpio_pin_toggle_dt(&ledspec);
-		k_msleep(1);
+		//gpio_pin_toggle_dt(&ledspec);
+		//k_msleep(1);
 	}
 
 	return 0;
