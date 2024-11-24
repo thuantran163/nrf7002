@@ -377,3 +377,5 @@
 /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/zephyr/cmake/reports/CMakeFiles/tfm_footprint.dir
 /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/zephyr/cmake/reports/CMakeFiles/edit_cache.dir
 /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/zephyr/cmake/reports/CMakeFiles/rebuild_cache.dir
+/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/edge-impulse-sdk/cmake/zephyr/CMakeFiles/edit_cache.dir
+/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/edge-impulse-sdk/cmake/zephyr/CMakeFiles/rebuild_cache.dir

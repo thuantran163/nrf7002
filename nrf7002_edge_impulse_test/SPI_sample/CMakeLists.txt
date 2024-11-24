@@ -16,4 +16,15 @@ set ( SOURCES
       LIS302DL_driver/src/LIS302DL.c
  
 )
-target_sources(app PRIVATE ${SOURCES})
+if(NOT TARGET app)
+     message(FATAL_ERROR "Please create a target named 'app' (ex: add_executable(app)) before adding this file")
+endif()
+
+include(edge-impulse-sdk/cmake/utils.cmake)
+add_subdirectory(edge-impulse-sdk/cmake/zephyr)
+
+RECURSIVE_FIND_FILE_APPEND(MODEL_SOURCE "tflite-model" "*.cpp")
+target_include_directories(app PRIVATE .)
+
+# add all sources to the project
+target_sources(app PRIVATE ${SOURCES} ${MODEL_SOURCE})
