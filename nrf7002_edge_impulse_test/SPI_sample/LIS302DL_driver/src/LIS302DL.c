@@ -22,32 +22,25 @@ ACCELERO_DrvTypeDef Lis302dlDrv =
 
 int hello_world()
 {
- // uint8_t test_data;
- // LIS302DL_Read_WhoAmIRegister(test_data);
- printf("Hello_world\r\n");
-
-
-
-	LIS302DL_Init();
-
-//  init_cs_gpio();
-	//uint8_t test_value = LIS302DL_ReadID();
+ //printf("Hello_world\r\n");
+  LIS302DL_Init();
+  //init_cs_gpio();
+	uint8_t test_value = LIS302DL_ReadID();
 	//printf("\r WHO_AM_I reg: %x \r\n", test_value);
-
+  //uint8_t test_data;
+  //LIS302DL_Read_WhoAmIRegister(test_data);
 	OutValue_TypeDef read_data ={
 		.OUT_X =0,
 		.OUT_Y =0,
 		.OUT_Z =0
 	};
 	LIS302DL_Read_Data(&read_data);
-//  printk("Hello world\r\n");
-
-
-
-  k_sleep(K_SECONDS(1)) ;
-	printk("\n Xdata: %d\r\n", read_data.OUT_X);
-	printk("\n Ydata: %d\r\n", read_data.OUT_Y);
-	printk("\n Zdata: %d\r\n", read_data.OUT_Z);
+  
+  //printk("Hello world\r\n");
+  //k_sleep(K_SECONDS(1)) ;
+	//printk("\n Xdata: %d\r\n", read_data.OUT_X);
+	//printk("\n Ydata: %d\r\n", read_data.OUT_Y);
+	//printk("\n Zdata: %d\r\n", read_data.OUT_Z);
 	printk("%d,%d,%d\r\n", read_data.OUT_X, read_data.OUT_Y,read_data.OUT_Z);
  // HAL_Delay(10);
  return 0;
@@ -59,11 +52,11 @@ int Get_DataBlock (uint8_t assign_address, uint8_t *assign_value)
 //  MX_SPI1_Init();
 //  MX_GPIO_Init();
 
- uint8_t tx_data[2] = { assign_address | 0x80, 0};
- //uint8_t tx_data[2] = { assign_address , 0};
+ //uint8_t tx_data[2] = { assign_address | 0x80, 0};
+ uint8_t tx_data = (assign_address & 0b00111111) | 0x80;  
  // printf("transmit_address: %x\r\n", tx_data[0]);
  uint8_t get_value[2];
- ACCELERO_IO_Read(assign_address, assign_value, sizeof(assign_value));
+ ACCELERO_IO_Read(tx_data, get_value, sizeof(get_value));
 //  HAL_GPIO_WritePin(GPIOE, GPIO_PIN_3, GPIO_PIN_RESET);
 //  HAL_SPI_TransmitReceive(&hspi1, tx_data,get_value,2,1000);
 //  HAL_Delay(1);
@@ -80,8 +73,8 @@ int Set_DataBlock (uint8_t assign_address, uint8_t assign_value)
 //  MX_GPIO_Init();
 //  MX_SPI1_Init();
 
- uint8_t tx_data[2] = {assign_address, assign_value};
- uint8_t return_value[2];
+uint8_t tx_data[2] = {assign_address, assign_value};
+uint8_t return_value[2];
 ACCELERO_IO_Write(assign_address, assign_value);
  // printf( "\n transmit address: %x \r\n", tx_data[0]);
  // printf( "\n transmit data: %x \r\n",    tx_data[1]);
@@ -101,8 +94,10 @@ ACCELERO_IO_Write(assign_address, assign_value);
 
 int LIS302DL_Read_WhoAmIRegister(uint8_t *return_value)
 {
+ uint8_t data;
  uint8_t address = WHO_AM_I_BASE;
- //Get_DataBlock(address, return_value);
+ Get_DataBlock(address, &data);
+ *return_value = data;
 	//ACCELERO_IO_Read(return_value, address, sizeof(return_value));
  return 1;
 }
@@ -182,7 +177,7 @@ int LIS302DL_Set_CTRL_REG3(CTRL_REG3_TypeDef reg)
 
 int LIS302DL_Read_CTRL_REG3(CTRL_REG3_TypeDef *reg)
 {
- uint8_t address = CTRL_REG3_BASE;
+  uint8_t address = CTRL_REG3_BASE;
 	uint8_t return_value = 0;
 	Get_DataBlock(address, &return_value);
 	////ACCELERO_IO_Read(&return_value, address, sizeof(return_value));
@@ -251,8 +246,8 @@ void LIS302DL_Init(void)
   LIS302DL_Read_CTRL_REG1(&reg1);
 
 	CTRL_REG2_TypeDef reg2 = {
-		.SIM =1,
-		.BOOT = 0,
+  	.SIM =1,
+  	.BOOT = 0,
 		.FDS = 0,
 		.HP_FF_WU = 0b00,
 		.HP_coeff = 0b00
@@ -278,7 +273,7 @@ uint8_t LIS302DL_ReadID(void)
 
   /* Configure the low level interface */
   //ACCELERO_IO_Init();
-
+  Get_DataBlock(WHO_AM_I_BASE, &tmp);
   /* Read WHO_AM_I register */
   //ACCELERO_IO_Read(&tmp, WHO_AM_I_BASE, 1);
   

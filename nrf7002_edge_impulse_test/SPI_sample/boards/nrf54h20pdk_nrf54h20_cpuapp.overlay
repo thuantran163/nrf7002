@@ -1,0 +1,49 @@
+/* STEP 2.1 - Add the SPI peripheral to spi1 */
+//&i2c0 {	status = "disabled";};
+//&spi0 {	status = "disabled";};
+//&i2c1 {	status = "disabled";};
+	
+&spi130 {
+  compatible = "nordic,nrf-spim";
+	status = "okay";
+	pinctrl-0 = <&spis131_default>;
+	pinctrl-1 = <&spis131_sleep>;
+	pinctrl-names = "default", "sleep";
+  //label = "SPI_131";
+	cs-gpios = <&gpio0 11 GPIO_ACTIVE_LOW>;
+bme280: bme280@0 {
+		compatible = "bosch,bme280";
+		reg = <0>;
+		spi-max-frequency = <125000> ;
+	};
+};
+
+
+/* STEP 2.2 - Change the pin configuration */
+&pinctrl {
+	spis131_default: spis131_default {
+		group1 {
+				psels = <NRF_PSEL(SPIM_SCK, 0, 0)>,
+						<NRF_PSEL(SPIM_MOSI, 0, 6)>,
+						<NRF_PSEL(SPIM_MISO, 0, 8)>;
+
+		};
+	};
+
+	spis131_sleep: spis131_sleep {
+		group1 {
+				psels = <NRF_PSEL(SPIM_SCK, 0, 0)>,
+						<NRF_PSEL(SPIM_MOSI, 0, 6)>,
+						<NRF_PSEL(SPIM_MISO, 0, 8)>;
+				low-power-enable;
+		};
+	};
+};
+/*
+&gpio0{
+  cs_pin: cs_pin {
+    gpio-pin = <25>;
+    direction = "out";
+    output-low;
+  };
+};*/

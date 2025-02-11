@@ -36,13 +36,11 @@
 		};
 	};
 };
-/* 
-&gpio1 {
-	status = "okay";
-    my_gpio: gpio_label {
-		gpio-pin = <1>;
-		gpio-output-high;
-        gpios = <&gpio1 1 GPIO_OUTPUT_HIGH>;
-    };
-};
-*/
+/*
+&gpio0{
+  cs_pin: cs_pin {
+    gpio-pin = <25>;
+    direction = "out";
+    output-low;
+  };
+};*/
