@@ -20,7 +20,7 @@ ACCELERO_DrvTypeDef Lis302dlDrv =
   LIS302DL_ReadACC,
 };
 
-int hello_world()
+OutValue_TypeDef read_accelerometerData(void)
 {
  //printf("Hello_world\r\n");
   LIS302DL_Init();
@@ -43,7 +43,7 @@ int hello_world()
 	//printk("\n Zdata: %d\r\n", read_data.OUT_Z);
 	printk("%d,%d,%d\r\n", read_data.OUT_X, read_data.OUT_Y,read_data.OUT_Z);
  // HAL_Delay(10);
- return 0;
+ return read_data;
 };
 
 

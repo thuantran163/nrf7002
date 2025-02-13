@@ -37,13 +37,13 @@
 #define FF_WU_SRC_2_BASE            0x00000031UL /* Readable register*/
 #define FF_WU_THS_2_BASE            0x00000032UL /* Read-write register*/
 #define FF_WU_DURATION_2_BASE       0x00000033UL /* Read-write register*/
-#define CLICK_CFG																			0x00000038UL /* Read-write register*/
-#define CLICK_SRC																			0x00000039UL /* Readable register*/
-#define CLICK_THSY_X																0x0000003BUL /* Read-write register*/
-#define CLICK_THSZ																		0x00000038UL /* Read-write register*/
-#define CLICK_TimeLimit													0x00000039UL /* Readable register*/
-#define CLICK_Latency															0x0000003BUL /* Read-write register*/
-#define CLICK_Window																0x0000003FUL /* Read-write register*/
+#define CLICK_CFG									  0x00000038UL /* Read-write register*/
+#define CLICK_SRC									  0x00000039UL /* Readable register*/
+#define CLICK_THSY_X							  0x0000003BUL /* Read-write register*/
+#define CLICK_THSZ							    0x00000038UL /* Read-write register*/
+#define CLICK_TimeLimit					    0x00000039UL /* Readable register*/
+#define CLICK_Latency								0x0000003BUL /* Read-write register*/
+#define CLICK_Window								0x0000003FUL /* Read-write register*/
 #define RESERVED5_START_BASE        0x00000038UL /* Reserved register*/
 #define RESERVED5_STOP_BASE         0x0000003FUL /* Reserved regsiter*/
 
@@ -358,7 +358,9 @@ typedef struct
 
 #define FF_WU_DURATION_Pos  0
 #define FF_WU_DURATION_Mask BF_MASK(FF_WU_DURATION_Pos, 8)
-
+#ifdef __cplusplus
+extern "C" {
+#endif
 int LIS302DL_Set_WhoAmIRegister(uint8_t assign_value);
 int LIS302DL_Read_WhoAmIRegister(uint8_t *return_value);
 int LIS302DL_Set_CTRL_REG1(CTRL_REG1_TypeDef reg);
@@ -386,8 +388,9 @@ void    LIS302DL_Click_IntClear(void);
 //void 			LIS302DL_DataRateCmd(uint8_t DataRateValue);
 void 			LIS302DL_ReadACC(int16_t *pData);
 void    LIS302DL_RebootCmd(void);
-int 				hello_world(void);
-
-
+OutValue_TypeDef read_accelerometerData(void);
+#ifdef __cplusplus
+}
+#endif
 
 #endif
