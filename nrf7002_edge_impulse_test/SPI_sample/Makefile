@@ -1,28 +1,55 @@
-NUMBER_FILE := count.txt
-NUMBER := $(shell cat $(NUMBER_FILE))
-NEW_NUMBER := $(shell echo $$(($(NUMBER)+1)))
-build: 
-	west build --build-dir /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build \
-		/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/ \
-		--board nrf7002dk/nrf5340/cpuapp/ns \
-		-- -DNCS_TOOLCHAIN_VERSION=NONE -DCONF_FILE=/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/prj.conf\
-		-DEXTRA_CONF_FILE=boards/nrf7002dk_nrf5340_cpuapp_ns.conf -DDTC_OVERLAY_FILE=boards/nrf7002dk_nrf5340_cpuapp_ns.overlay
-#	git add .
-#	git commit -m "build $(NUMBER)"
-#	git push
-#	echo $(NEW_NUMBER) > $(NUMBER_FILE)
-
-
-build-pristine: 
-	west build --build-dir /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build \
-		/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/ \
-		--pristine \
-		--board nrf7002dk_nrf7001_nrf5340_cpuapp_ns \
-		-- -DNCS_TOOLCHAIN_VERSION=NONE -DCONF_FILE=/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/prj.conf\
-		-DEXTRA_CONF_FILE=boards/nrf7002dk_nrf5340_cpuapp_ns.conf -DDTC_OVERLAY_FILE=boards/nrf7002dk_nrf5340_cpuapp_ns.overlay
-
-
-clean:
-	rm -rf ./build
+SHELL := /bin/bash
+#
+#.SUFFIXES:
+#.DELETE_ON_ERROR:
+#
+#PWD := $(shell pwd)
+#TOP := .
+#TOPDIR :=
+#BUILD_SYSTEM := $(TOPDIR)build/core
+#
+#
+## This is the default target.  It must be the first declared target.
+#.PHONY: west
+.DEFAULT_GOAL := build
+#$(DEFAULT_GOAL):
+#
+#.PHONY: FORCE
+#FORCE:
+TARGET := EdgeImpulse_example
+DIR := $(shell pwd)
+BUILD_DIR := $(DIR)/build
+BOARD_DIR := $(DIR)/boards
+BOARD := nrf7002dk/nrf5340/cpuapp/ns
+#BOARD :=   nrf54h20dk/nrf54h20/cpuapp 
+#DEBUG:= 
+#OPT:=
+PRJ_SOURCES := $(DIR)/prj.conf
+OVERLAY_SOURCES := $(BOARD_DIR)/nrf7002dk_nrf5340_cpuapp_ns.overlay
+#OVERLAY_SOURCES := $(BOARD_DIR)/nrf54h20dk_nrf54h20_cpuapp.overlay
+CONFIG_SOURCES := $(BOARD_DIR)/nrf7002dk_nrf5340_cpuapp_ns.conf 
+all: pristine
 
 .PHONY: build
+build: 
+	west build $(if $(filter 1,$(PRISTINE)), --pristine) \
+		--build-dir $(BUILD_DIR) $(DIR) \
+		--board $(BOARD)  \
+		-- -DNCS_TOOLCHAIN_VERSION=NONE \
+			 -DCONF_FILE= $(CONFIG_SOURCES) \
+		   -DEXTRA_CONF_FILE=$(CONFIG_SOURCES) -DDTC_OVERLAY_FILE=$(OVERLAY_SOURCES) 
+
+.PHONY: pristine
+pristine: 
+	$(MAKE) PRISTINE=1 build
+
+.PHONY: flash
+flash:
+		west flash --skip-rebuild --no-erase
+
+
+.PHONY: clean
+clean:
+	rm -rf $(BUILD_DIR)
+
+

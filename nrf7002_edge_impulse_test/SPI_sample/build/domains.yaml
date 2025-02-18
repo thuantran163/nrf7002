@@ -1,0 +1,7 @@
+default: SPI_sample
+build_dir: /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build
+domains:
+  - name: SPI_sample
+    build_dir: /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/SPI_sample
+flash_order:
+  - SPI_sample

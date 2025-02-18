@@ -41,7 +41,7 @@ OutValue_TypeDef read_accelerometerData(void)
 	//printk("\n Xdata: %d\r\n", read_data.OUT_X);
 	//printk("\n Ydata: %d\r\n", read_data.OUT_Y);
 	//printk("\n Zdata: %d\r\n", read_data.OUT_Z);
-	printk("%d,%d,%d\r\n", read_data.OUT_X, read_data.OUT_Y,read_data.OUT_Z);
+	//printk("%d,%d,%d\r\n", read_data.OUT_X, read_data.OUT_Y,read_data.OUT_Z);
  // HAL_Delay(10);
  return read_data;
 };

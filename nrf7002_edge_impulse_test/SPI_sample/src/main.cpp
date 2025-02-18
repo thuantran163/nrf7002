@@ -12,6 +12,7 @@
 #include <iostream>
 #include <sstream>
 
+#include "dsp/spectral/feature.hpp"
 #include "edge-impulse-sdk/classifier/ei_run_classifier.h"
 
 int detect_motion(std::vector<float>& raw_features);
@@ -32,7 +33,7 @@ void *__dso_handle = 0;
 LOG_MODULE_REGISTER(Lesson5_Exercise1, LOG_LEVEL_INF);
 
 const struct gpio_dt_spec ledspec = GPIO_DT_SPEC_GET(DT_NODELABEL(led0), gpios);
-void convert_to_sensor_value(const OutValue_TypeDef *out_val, struct sensor_value *sensor_val) {
+void convert_to_sensor_value(OutValue_TypeDef *out_val, struct sensor_value *sensor_val) {
     sensor_val[0].val1 = (int32_t) out_val->OUT_X;
     sensor_val[0].val2 = 0;  // No fractional part
 
@@ -43,6 +44,10 @@ void convert_to_sensor_value(const OutValue_TypeDef *out_val, struct sensor_valu
     sensor_val[2].val2 = 0;
 }
 
+double m_sensor_value_to_double(struct sensor_value *val)
+{
+	return (double)val->val1 + (double)val->val2 / 1000000;
+}
 int main(void)
 {
 	int err;
@@ -64,7 +69,7 @@ int main(void)
 	LOG_INF("Continuously read sensor samples, compensate, and display");
 	while(1){
     std::vector<float> features;
-
+    features.resize(EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE);
     for (size_t ix = 0; ix < EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE;
                           ix += EI_CLASSIFIER_RAW_SAMPLES_PER_FRAME) {
       // start a timer that expires when we need to grab the next value
@@ -73,12 +78,16 @@ int main(void)
       k_timer_start(&next_val_timer, K_USEC(time_between_samples_us), K_NO_WAIT);
       OutValue_TypeDef value_accelerometer = read_accelerometerData();
       // fill the features array
-      struct sensor_value sensor_data[3];
-      convert_to_sensor_value(&value_accelerometer, sensor_data); 
-      
-      features[ix + 0] = sensor_value_to_double(&sensor_data[0]);
-      features[ix + 1] = sensor_value_to_double(&sensor_data[1]);
-      features[ix + 2] = sensor_value_to_double(&sensor_data[2]);
+      struct sensor_value sensor_data[3] = {
+        {0, 0},
+        {0, 0},
+        {0, 0} };
+      //convert_to_sensor_value(&value_accelerometer, &sensor_data); 
+      convert_to_sensor_value(&value_accelerometer, sensor_data);
+      //double test_data = m_sensor_value_to_double(&sensor_data[0]); 
+      features[ix + 0] = m_sensor_value_to_double(&sensor_data[0]);
+      features[ix + 1] = m_sensor_value_to_double(&sensor_data[1]);
+      features[ix + 2] = m_sensor_value_to_double(&sensor_data[2]);
 
       // busy loop until next value should be grabbed
       while (k_timer_status_get(&next_val_timer) <= 0);

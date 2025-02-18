@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/_sysbuild/sysbuild/images/CMakeFiles/SPI_sample"
+		},
+		{
+			"file" : "/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/_sysbuild/sysbuild/images/CMakeFiles/SPI_sample.rule"
+		},
+		{
+			"file" : "/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/_sysbuild/sysbuild/images/CMakeFiles/SPI_sample-complete.rule"
+		},
+		{
+			"file" : "/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/_sysbuild/sysbuild/images/SPI_sample-prefix/src/SPI_sample-stamp/SPI_sample-build.rule"
+		},
+		{
+			"file" : "/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/_sysbuild/sysbuild/images/SPI_sample-prefix/src/SPI_sample-stamp/SPI_sample-configure.rule"
+		},
+		{
+			"file" : "/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/_sysbuild/sysbuild/images/SPI_sample-prefix/src/SPI_sample-stamp/SPI_sample-download.rule"
+		},
+		{
+			"file" : "/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/_sysbuild/sysbuild/images/SPI_sample-prefix/src/SPI_sample-stamp/SPI_sample-install.rule"
+		},
+		{
+			"file" : "/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/_sysbuild/sysbuild/images/SPI_sample-prefix/src/SPI_sample-stamp/SPI_sample-mkdir.rule"
+		},
+		{
+			"file" : "/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/_sysbuild/sysbuild/images/SPI_sample-prefix/src/SPI_sample-stamp/SPI_sample-patch.rule"
+		},
+		{
+			"file" : "/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/_sysbuild/sysbuild/images/SPI_sample-prefix/src/SPI_sample-stamp/SPI_sample-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"SPI_sample"
+		],
+		"name" : "SPI_sample"
+	}
+}

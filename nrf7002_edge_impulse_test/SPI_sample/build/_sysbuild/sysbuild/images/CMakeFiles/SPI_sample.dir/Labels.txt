@@ -1,0 +1,13 @@
+# Target labels
+ SPI_sample
+# Source files and their labels
+/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/_sysbuild/sysbuild/images/CMakeFiles/SPI_sample
+/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/_sysbuild/sysbuild/images/CMakeFiles/SPI_sample.rule
+/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/_sysbuild/sysbuild/images/CMakeFiles/SPI_sample-complete.rule
+/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/_sysbuild/sysbuild/images/SPI_sample-prefix/src/SPI_sample-stamp/SPI_sample-build.rule
+/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/_sysbuild/sysbuild/images/SPI_sample-prefix/src/SPI_sample-stamp/SPI_sample-configure.rule
+/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/_sysbuild/sysbuild/images/SPI_sample-prefix/src/SPI_sample-stamp/SPI_sample-download.rule
+/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/_sysbuild/sysbuild/images/SPI_sample-prefix/src/SPI_sample-stamp/SPI_sample-install.rule
+/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/_sysbuild/sysbuild/images/SPI_sample-prefix/src/SPI_sample-stamp/SPI_sample-mkdir.rule
+/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/_sysbuild/sysbuild/images/SPI_sample-prefix/src/SPI_sample-stamp/SPI_sample-patch.rule
+/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/_sysbuild/sysbuild/images/SPI_sample-prefix/src/SPI_sample-stamp/SPI_sample-update.rule
