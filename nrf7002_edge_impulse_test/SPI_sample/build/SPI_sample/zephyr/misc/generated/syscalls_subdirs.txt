@@ -48,7 +48,6 @@
 /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/SPI_sample/zephyr/misc/generated/syscalls_links/include_zephyr_stats
 /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/SPI_sample/zephyr/misc/generated/syscalls_links/include_zephyr_storage
 /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/SPI_sample/zephyr/misc/generated/syscalls_links/include_zephyr_sys
-/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/SPI_sample/zephyr/misc/generated/syscalls_links/include_zephyr_syscalls
 /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/SPI_sample/zephyr/misc/generated/syscalls_links/include_zephyr_task_wdt
 /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/SPI_sample/zephyr/misc/generated/syscalls_links/include_zephyr_timing
 /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/SPI_sample/zephyr/misc/generated/syscalls_links/include_zephyr_toolchain
@@ -127,7 +126,6 @@
 /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/SPI_sample/zephyr/misc/generated/syscalls_links/include_zephyr_drivers_power
 /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/SPI_sample/zephyr/misc/generated/syscalls_links/include_zephyr_drivers_pwm
 /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/SPI_sample/zephyr/misc/generated/syscalls_links/include_zephyr_drivers_regulator
-/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/SPI_sample/zephyr/misc/generated/syscalls_links/include_zephyr_drivers_retained_mem
 /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/SPI_sample/zephyr/misc/generated/syscalls_links/include_zephyr_drivers_rtc
 /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/SPI_sample/zephyr/misc/generated/syscalls_links/include_zephyr_drivers_sensor
 /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/SPI_sample/zephyr/misc/generated/syscalls_links/include_zephyr_drivers_serial
@@ -150,9 +148,8 @@
 /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/SPI_sample/zephyr/misc/generated/syscalls_links/include_zephyr_drivers_misc_stm32_wkup_pins
 /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/SPI_sample/zephyr/misc/generated/syscalls_links/include_zephyr_drivers_misc_timeaware_gpio
 /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/SPI_sample/zephyr/misc/generated/syscalls_links/include_zephyr_drivers_pcie_endpoint
-/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/SPI_sample/zephyr/misc/generated/syscalls_links/include_zephyr_drivers_wifi_nrf_wifi
-/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/SPI_sample/zephyr/misc/generated/syscalls_links/include_zephyr_drivers_wifi_nrf_wifi_bus
-/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/SPI_sample/zephyr/misc/generated/syscalls_links/include_zephyr_drivers_wifi_nrf_wifi_off_raw_tx
+/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/SPI_sample/zephyr/misc/generated/syscalls_links/include_zephyr_drivers_wifi_nrfwifi
+/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/SPI_sample/zephyr/misc/generated/syscalls_links/include_zephyr_drivers_wifi_nrfwifi_off_raw_tx
 /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/SPI_sample/zephyr/misc/generated/syscalls_links/include_zephyr_dt-bindings_acpi
 /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/SPI_sample/zephyr/misc/generated/syscalls_links/include_zephyr_dt-bindings_adc
 /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/SPI_sample/zephyr/misc/generated/syscalls_links/include_zephyr_dt-bindings_battery

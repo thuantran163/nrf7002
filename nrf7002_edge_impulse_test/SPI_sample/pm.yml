@@ -1,0 +1,4 @@
+app:
+  size: 0x80000  # Size in hexadecimal (0x80000 = 524,288 bytes = 512 KB)
+  placement:
+    after: [mcuboot]

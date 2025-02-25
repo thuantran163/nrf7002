@@ -20,14 +20,15 @@ TARGET := EdgeImpulse_example
 DIR := $(shell pwd)
 BUILD_DIR := $(DIR)/build
 BOARD_DIR := $(DIR)/boards
-BOARD := nrf7002dk/nrf5340/cpuapp/ns
-#BOARD :=   nrf54h20dk/nrf54h20/cpuapp 
+#BOARD := nrf7002dk/nrf5340/cpuapp/ns
+BOARD :=   nrf54h20dk/nrf54h20/cpuapp 
 #DEBUG:= 
 #OPT:=
 PRJ_SOURCES := $(DIR)/prj.conf
-OVERLAY_SOURCES := $(BOARD_DIR)/nrf7002dk_nrf5340_cpuapp_ns.overlay
-#OVERLAY_SOURCES := $(BOARD_DIR)/nrf54h20dk_nrf54h20_cpuapp.overlay
-CONFIG_SOURCES := $(BOARD_DIR)/nrf7002dk_nrf5340_cpuapp_ns.conf 
+#OVERLAY_SOURCES := $(BOARD_DIR)/nrf7002dk_nrf5340_cpuapp_ns.overlay
+OVERLAY_SOURCES := $(BOARD_DIR)/nrf54h20dk_nrf54h20_cpuapp_fast.overlay
+SUIT_EVELOPE_NORDIC_DIRECTORY := $(DIR)/nordic_top.suit
+#CONFIG_SOURCES := $(BOARD_DIR)/nrf7002dk_nrf5340_cpuapp_ns.conf 
 all: pristine
 
 .PHONY: build
@@ -36,6 +37,7 @@ build:
 		--build-dir $(BUILD_DIR) $(DIR) \
 		--board $(BOARD)  \
 		-- -DNCS_TOOLCHAIN_VERSION=NONE \
+		   -DBS_CONFIG_SUIT_EVELOPE_NORDIC_TOP_DIRECTORY=$(SUIT_EVELOPE_NORDIC_DIRECTORY) \
 			 -DCONF_FILE= $(CONFIG_SOURCES) \
 		   -DEXTRA_CONF_FILE=$(CONFIG_SOURCES) -DDTC_OVERLAY_FILE=$(OVERLAY_SOURCES) 
 

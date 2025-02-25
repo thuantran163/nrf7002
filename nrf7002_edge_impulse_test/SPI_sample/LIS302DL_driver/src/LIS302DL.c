@@ -1,7 +1,5 @@
 #include "Accelero_instance.h"
 #include "LIS302DL.h"
-#include <zephyr/kernel.h>
-#include <zephyr/logging/log.h>
 
 ACCELERO_DrvTypeDef Lis302dlDrv =
 {

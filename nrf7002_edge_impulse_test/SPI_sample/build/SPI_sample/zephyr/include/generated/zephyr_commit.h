@@ -6,7 +6,7 @@
  * alternatively user defined BUILD_VERSION.
  */
 
-#define ZEPHYR_COMMIT                   f5efb381b8af
-#define ZEPHYR_COMMIT_STRING            "f5efb381b8af"
+#define ZEPHYR_COMMIT                   0bc3393fb112
+#define ZEPHYR_COMMIT_STRING            "0bc3393fb112"
 
 #endif /* _ZEPHYR_COMMIT_H_ */

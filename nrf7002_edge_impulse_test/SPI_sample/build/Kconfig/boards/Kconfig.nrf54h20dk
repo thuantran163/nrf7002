@@ -1,0 +1,2 @@
+# Load board Kconfig descriptions.
+osource "/workspace/.emotiv/nrfconnect/v2.8.0/zephyr/boards/nordic/nrf54h20dk/Kconfig.nrf54h20dk"

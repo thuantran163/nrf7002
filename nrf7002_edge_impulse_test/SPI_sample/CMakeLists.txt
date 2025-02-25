@@ -20,7 +20,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DSTATIC_INIT_GNU -D_GLIBCXX_USE_CXX11_A
 # Find Zephyr and set up the project
 find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
 project(nrf_connect_sdk_intermediate)
-
+#set(PM_YML_FILE ${CMAKE_CURRENT_SOURCE_DIR}/pm.yml)
 # Include directories
 target_include_directories(app PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/LIS302DL_driver/inc

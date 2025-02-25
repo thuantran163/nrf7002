@@ -3062,11 +3062,6 @@ DT_COMPAT_JEDEC_JC_42_4_TEMP := jedec,jc-42.4-temp
 config DT_HAS_JEDEC_JC_42_4_TEMP_ENABLED
 	def_bool $(dt_compat_enabled,$(DT_COMPAT_JEDEC_JC_42_4_TEMP))
 
-DT_COMPAT_JEDEC_MSPI_NOR := jedec,mspi-nor
-
-config DT_HAS_JEDEC_MSPI_NOR_ENABLED
-	def_bool $(dt_compat_enabled,$(DT_COMPAT_JEDEC_MSPI_NOR))
-
 DT_COMPAT_JEDEC_SPI_NOR := jedec,spi-nor
 
 config DT_HAS_JEDEC_SPI_NOR_ENABLED
@@ -4097,11 +4092,6 @@ DT_COMPAT_NORDIC_NRF_EXMIF := nordic,nrf-exmif
 config DT_HAS_NORDIC_NRF_EXMIF_ENABLED
 	def_bool $(dt_compat_enabled,$(DT_COMPAT_NORDIC_NRF_EXMIF))
 
-DT_COMPAT_NORDIC_NRF_EXMIF_SPI := nordic,nrf-exmif-spi
-
-config DT_HAS_NORDIC_NRF_EXMIF_SPI_ENABLED
-	def_bool $(dt_compat_enabled,$(DT_COMPAT_NORDIC_NRF_EXMIF_SPI))
-
 DT_COMPAT_NORDIC_NRF_FICR := nordic,nrf-ficr
 
 config DT_HAS_NORDIC_NRF_FICR_ENABLED
@@ -4147,15 +4137,10 @@ DT_COMPAT_NORDIC_NRF_HFXO := nordic,nrf-hfxo
 config DT_HAS_NORDIC_NRF_HFXO_ENABLED
 	def_bool $(dt_compat_enabled,$(DT_COMPAT_NORDIC_NRF_HFXO))
 
-DT_COMPAT_NORDIC_NRF_HSFLL_GLOBAL := nordic,nrf-hsfll-global
+DT_COMPAT_NORDIC_NRF_HSFLL := nordic,nrf-hsfll
 
-config DT_HAS_NORDIC_NRF_HSFLL_GLOBAL_ENABLED
-	def_bool $(dt_compat_enabled,$(DT_COMPAT_NORDIC_NRF_HSFLL_GLOBAL))
-
-DT_COMPAT_NORDIC_NRF_HSFLL_LOCAL := nordic,nrf-hsfll-local
-
-config DT_HAS_NORDIC_NRF_HSFLL_LOCAL_ENABLED
-	def_bool $(dt_compat_enabled,$(DT_COMPAT_NORDIC_NRF_HSFLL_LOCAL))
+config DT_HAS_NORDIC_NRF_HSFLL_ENABLED
+	def_bool $(dt_compat_enabled,$(DT_COMPAT_NORDIC_NRF_HSFLL))
 
 DT_COMPAT_NORDIC_NRF_I2S := nordic,nrf-i2s
 
@@ -4256,11 +4241,6 @@ DT_COMPAT_NORDIC_NRF_PPI := nordic,nrf-ppi
 
 config DT_HAS_NORDIC_NRF_PPI_ENABLED
 	def_bool $(dt_compat_enabled,$(DT_COMPAT_NORDIC_NRF_PPI))
-
-DT_COMPAT_NORDIC_NRF_PPIB := nordic,nrf-ppib
-
-config DT_HAS_NORDIC_NRF_PPIB_ENABLED
-	def_bool $(dt_compat_enabled,$(DT_COMPAT_NORDIC_NRF_PPIB))
 
 DT_COMPAT_NORDIC_NRF_PWM := nordic,nrf-pwm
 
@@ -7631,11 +7611,6 @@ DT_COMPAT_SNPS_DESIGNWARE_SPI := snps,designware-spi
 
 config DT_HAS_SNPS_DESIGNWARE_SPI_ENABLED
 	def_bool $(dt_compat_enabled,$(DT_COMPAT_SNPS_DESIGNWARE_SPI))
-
-DT_COMPAT_SNPS_DESIGNWARE_SSI := snps,designware-ssi
-
-config DT_HAS_SNPS_DESIGNWARE_SSI_ENABLED
-	def_bool $(dt_compat_enabled,$(DT_COMPAT_SNPS_DESIGNWARE_SSI))
 
 DT_COMPAT_SNPS_DESIGNWARE_USB := snps,designware-usb
 

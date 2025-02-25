@@ -3,53 +3,48 @@ cmake:
     configuration-dir: /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample
     source-dir: /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample
   board:
-    name: nrf7002dk
-    qualifiers: nrf5340/cpuapp/ns
-    revision: 
+    name: nrf54h20dk
+    qualifiers: nrf54h20/cpuapp
+    revision: 0.9.0
   devicetree:
     bindings-dirs:
-     - /workspace/.emotiv/nrfconnect/v2.9.0-nRF54H20-rc1/nrf/dts/bindings
-     - /workspace/.emotiv/nrfconnect/v2.9.0-nRF54H20-rc1/zephyr/dts/bindings
+     - /workspace/.emotiv/nrfconnect/v2.8.0/nrf/dts/bindings
+     - /workspace/.emotiv/nrfconnect/v2.8.0/zephyr/dts/bindings
     files:
-     - /workspace/.emotiv/nrfconnect/v2.9.0-nRF54H20-rc1/zephyr/boards/nordic/nrf7002dk/nrf7002dk_nrf5340_cpuapp_ns.dts
-     - /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/boards/nrf7002dk_nrf5340_cpuapp_ns.overlay
+     - /workspace/.emotiv/nrfconnect/v2.8.0/zephyr/boards/nordic/nrf54h20dk/nrf54h20dk_nrf54h20_cpuapp.dts
+     - /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/boards/nrf54h20dk_nrf54h20_cpuapp_fast.overlay
     include-dirs:
-     - /workspace/.emotiv/nrfconnect/v2.9.0-nRF54H20-rc1/nrf/include
-     - /workspace/.emotiv/nrfconnect/v2.9.0-nRF54H20-rc1/nrf/dts
-     - /workspace/.emotiv/nrfconnect/v2.9.0-nRF54H20-rc1/zephyr/include
-     - /workspace/.emotiv/nrfconnect/v2.9.0-nRF54H20-rc1/zephyr/include/zephyr
-     - /workspace/.emotiv/nrfconnect/v2.9.0-nRF54H20-rc1/zephyr/dts/common
-     - /workspace/.emotiv/nrfconnect/v2.9.0-nRF54H20-rc1/zephyr/dts/x86
-     - /workspace/.emotiv/nrfconnect/v2.9.0-nRF54H20-rc1/zephyr/dts/xtensa
-     - /workspace/.emotiv/nrfconnect/v2.9.0-nRF54H20-rc1/zephyr/dts/sparc
-     - /workspace/.emotiv/nrfconnect/v2.9.0-nRF54H20-rc1/zephyr/dts/riscv
-     - /workspace/.emotiv/nrfconnect/v2.9.0-nRF54H20-rc1/zephyr/dts/posix
-     - /workspace/.emotiv/nrfconnect/v2.9.0-nRF54H20-rc1/zephyr/dts/nios2
-     - /workspace/.emotiv/nrfconnect/v2.9.0-nRF54H20-rc1/zephyr/dts/arm64
-     - /workspace/.emotiv/nrfconnect/v2.9.0-nRF54H20-rc1/zephyr/dts/arm
-     - /workspace/.emotiv/nrfconnect/v2.9.0-nRF54H20-rc1/zephyr/dts/arc
-     - /workspace/.emotiv/nrfconnect/v2.9.0-nRF54H20-rc1/zephyr/dts
+     - /workspace/.emotiv/nrfconnect/v2.8.0/nrf/include
+     - /workspace/.emotiv/nrfconnect/v2.8.0/nrf/dts
+     - /workspace/.emotiv/nrfconnect/v2.8.0/zephyr/include
+     - /workspace/.emotiv/nrfconnect/v2.8.0/zephyr/include/zephyr
+     - /workspace/.emotiv/nrfconnect/v2.8.0/zephyr/dts/common
+     - /workspace/.emotiv/nrfconnect/v2.8.0/zephyr/dts/x86
+     - /workspace/.emotiv/nrfconnect/v2.8.0/zephyr/dts/xtensa
+     - /workspace/.emotiv/nrfconnect/v2.8.0/zephyr/dts/sparc
+     - /workspace/.emotiv/nrfconnect/v2.8.0/zephyr/dts/riscv
+     - /workspace/.emotiv/nrfconnect/v2.8.0/zephyr/dts/posix
+     - /workspace/.emotiv/nrfconnect/v2.8.0/zephyr/dts/nios2
+     - /workspace/.emotiv/nrfconnect/v2.8.0/zephyr/dts/arm64
+     - /workspace/.emotiv/nrfconnect/v2.8.0/zephyr/dts/arm
+     - /workspace/.emotiv/nrfconnect/v2.8.0/zephyr/dts/arc
+     - /workspace/.emotiv/nrfconnect/v2.8.0/zephyr/dts
     user-files:
-     - /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/boards/nrf7002dk_nrf5340_cpuapp_ns.overlay
+     - /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/boards/nrf54h20dk_nrf54h20_cpuapp_fast.overlay
   kconfig:
-    extra-user-files:
-     - /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/boards/nrf7002dk_nrf5340_cpuapp_ns.conf
     files:
-     - /workspace/.emotiv/nrfconnect/v2.9.0-nRF54H20-rc1/zephyr/boards/nordic/nrf7002dk/nrf7002dk_nrf5340_cpuapp_ns_defconfig
+     - /workspace/.emotiv/nrfconnect/v2.8.0/zephyr/boards/nordic/nrf54h20dk/nrf54h20dk_nrf54h20_cpuapp_defconfig
      - /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/prj.conf
-     - /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/boards/nrf7002dk_nrf5340_cpuapp_ns.conf
-     - /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/boards/nrf7002dk_nrf5340_cpuapp_ns.conf
      - /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build/SPI_sample/zephyr/.config.sysbuild
     user-files:
      - /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/prj.conf
-     - /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/boards/nrf7002dk_nrf5340_cpuapp_ns.conf
   toolchain:
     name: zephyr
-    path: /root/ncs/toolchains/b77d8c1312/opt/zephyr-sdk
+    path: /root/ncs/toolchains/b81a7cd864/opt/zephyr-sdk
   vendor-specific:
     nordic:
-      svdfile: /workspace/.emotiv/nrfconnect/v2.9.0-nRF54H20-rc1/modules/hal/nordic/nrfx/mdk/nrf5340_application.svd
+      svdfile: /workspace/.emotiv/nrfconnect/v2.8.0/modules/hal/nordic/nrfx/mdk/nrf54h20_application.svd
   zephyr:
     version: 3.7.99
-    zephyr-base: /workspace/.emotiv/nrfconnect/v2.9.0-nRF54H20-rc1/zephyr
+    zephyr-base: /workspace/.emotiv/nrfconnect/v2.8.0/zephyr
 version: 0.1.0

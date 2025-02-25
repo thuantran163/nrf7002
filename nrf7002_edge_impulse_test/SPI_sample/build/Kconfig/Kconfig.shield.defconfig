@@ -1,1 +1,1 @@
-osource "/workspace/.emotiv/nrfconnect/v2.9.0-nRF54H20-rc1/nrf/boards/shields/*/Kconfig.defconfig"
+osource "/workspace/.emotiv/nrfconnect/v2.8.0/nrf/boards/shields/*/Kconfig.defconfig"

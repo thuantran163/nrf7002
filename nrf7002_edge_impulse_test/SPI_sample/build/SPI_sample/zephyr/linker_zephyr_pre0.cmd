@@ -2,9 +2,9 @@
 _region_min_align = 32;
 MEMORY
     {
-    FLASH (rx) : ORIGIN = 0x10000, LENGTH = 0xf0000
-    RAM (wx) : ORIGIN = 0x20008000, LENGTH = 0x68000
-   
+    FLASH (rx) : ORIGIN = (0xe000000 + 0xa6000), LENGTH = (0x3e000 - 0x0)
+    RAM (wx) : ORIGIN = 0x2f011000, LENGTH = (256 * 1K)
+    DMA_RAM21 : ORIGIN = 797556736, LENGTH = 16384 DMA_RAM3x_APP : ORIGIN = 801185792, LENGTH = 4096
     IDT_LIST (wx) : ORIGIN = 0xFFFF7FFF, LENGTH = 32K
     }
 ENTRY("__start")
@@ -41,7 +41,7 @@ SECTIONS
  *(.iplt)
  }
    
- __rom_region_start = 0x10000;
+ __rom_region_start = (0xe000000 + 0xa6000);
     rom_start :
  {
 HIDDEN(__rom_start_address = .);
@@ -49,7 +49,7 @@ FILL(0x00);
 . += 0x0 - (. - __rom_start_address);
 . = ALIGN(4);
 . = ALIGN( 1 << LOG2CEIL(4 * 32) );
-. = ALIGN( 1 << LOG2CEIL(4 * (16 + 69)) );
+. = ALIGN( 1 << LOG2CEIL(4 * (16 + 471)) );
 _vector_start = .;
 KEEP(*(.exc_vector_table))
 KEEP(*(".exc_vector_table.*"))
@@ -185,7 +185,7 @@ ztest :
  *(.igot)
  }
    
- . = 0x20008000;
+ . = 0x2f011000;
  . = ALIGN(_region_min_align);
  _image_ram_start = .;
 .ramfunc : ALIGN_WITH_INPUT
@@ -256,7 +256,7 @@ __ramfunc_load_start = LOADADDR(.ramfunc);
         *(".noinit.*")
  *(".kernel_noinit.*")
         } > RAM AT > RAM
-    __kernel_ram_end = 0x20008000 + 0x68000;
+    __kernel_ram_end = 0x2f011000 + (256 * 1K);
     __kernel_ram_size = __kernel_ram_end - __kernel_ram_start;
 PROVIDE(soc_reset_hook = SystemInit);
 .intList :
@@ -264,6 +264,11 @@ PROVIDE(soc_reset_hook = SystemInit);
  KEEP(*(.irq_info*))
  KEEP(*(.intList*))
 } > IDT_LIST
+.align16 :
+{
+ . = (ALIGN(16) > 0 ? ALIGN(16) : 16) - 1;
+ BYTE(0);
+} > FLASH
     .last_ram_section (NOLOAD) :
     {
  _image_ram_end = .;
@@ -313,7 +318,7 @@ PROVIDE(soc_reset_hook = SystemInit);
  KEEP(*(.ARM.attributes))
  KEEP(*(.gnu.attributes))
  }
-   
+    DMA_RAM21 (NOLOAD) : { __DMA_RAM21_start = .; KEEP(*(DMA_RAM21)) KEEP(*(DMA_RAM21.*)) __DMA_RAM21_end = .; } > DMA_RAM21 __DMA_RAM21_size = __DMA_RAM21_end - __DMA_RAM21_start; __DMA_RAM21_load_start = LOADADDR(DMA_RAM21); DMA_RAM3x_APP (NOLOAD) : { __DMA_RAM3x_APP_start = .; KEEP(*(DMA_RAM3x_APP)) KEEP(*(DMA_RAM3x_APP.*)) __DMA_RAM3x_APP_end = .; } > DMA_RAM3x_APP __DMA_RAM3x_APP_size = __DMA_RAM3x_APP_end - __DMA_RAM3x_APP_start; __DMA_RAM3x_APP_load_start = LOADADDR(DMA_RAM3x_APP);
 .last_section :
 {
   LONG(0xE015E015)

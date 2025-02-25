@@ -8,6 +8,8 @@
 
 #define K_SYSCALL_DRIVER_MBOX(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, mbox, MBOX)
 
+#define K_SYSCALL_DRIVER_SENSOR(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, sensor, SENSOR)
+
 #define K_SYSCALL_DRIVER_UART(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, uart, UART)
 
 #define K_SYSCALL_DRIVER_SPI(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, spi, SPI)
@@ -119,8 +121,6 @@
 #define K_SYSCALL_DRIVER_RTC(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, rtc, RTC)
 
 #define K_SYSCALL_DRIVER_SDHC(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, sdhc, SDHC)
-
-#define K_SYSCALL_DRIVER_SENSOR(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, sensor, SENSOR)
 
 #define K_SYSCALL_DRIVER_SMBUS(ptr, op) K_SYSCALL_DRIVER_GEN(ptr, op, smbus, SMBUS)
 

@@ -1,4 +1,4 @@
-# Install script for directory: /workspace/.emotiv/nrfconnect/v2.9.0-nRF54H20-rc1/zephyr/share/sysbuild/images/soc
+# Install script for directory: /workspace/.emotiv/nrfconnect/v2.8.0/zephyr/share/sysbuild/images/soc
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -1,5 +1,5 @@
-menu "nrf (/workspace/.emotiv/nrfconnect/v2.9.0-nRF54H20-rc1/nrf)"
-osource "/workspace/.emotiv/nrfconnect/v2.9.0-nRF54H20-rc1/nrf/sysbuild/Kconfig.sysbuild"
+menu "nrf (/workspace/.emotiv/nrfconnect/v2.8.0/nrf)"
+osource "/workspace/.emotiv/nrfconnect/v2.8.0/nrf/sysbuild/Kconfig.sysbuild"
 config ZEPHYR_NRF_MODULE
 	bool
 	default y
@@ -106,7 +106,7 @@ config ZEPHYR_LVGL_MODULE
 config ZEPHYR_MIPI_SYS_T_MODULE
    bool
    default y
-config ZEPHYR_NRF_WIFI_MODULE
+config ZEPHYR_NRF_HW_MODELS_MODULE
    bool
    default y
 config ZEPHYR_OPEN_AMP_MODULE
@@ -128,9 +128,6 @@ config ZEPHYR_ZCBOR_MODULE
    bool
    default y
 config ZEPHYR_NRFXLIB_MODULE
-   bool
-   default y
-config ZEPHYR_NRF_HW_MODELS_MODULE
    bool
    default y
 config ZEPHYR_CONNECTEDHOMEIP_MODULE

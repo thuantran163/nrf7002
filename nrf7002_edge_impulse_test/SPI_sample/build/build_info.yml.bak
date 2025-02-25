@@ -1,9 +1,7 @@
 west:
-  command: /root/ncs/toolchains/b77d8c1312/usr/local/bin/west build --pristine --build-dir
+  command: /root/ncs/toolchains/b81a7cd864/usr/local/bin/west build --pristine --build-dir
     /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/build /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample
-    --board nrf7002dk/nrf5340/cpuapp/ns -- -DNCS_TOOLCHAIN_VERSION=NONE -DCONF_FILE=
-    /workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/boards/nrf7002dk_nrf5340_cpuapp_ns.conf
-    -DEXTRA_CONF_FILE=/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/boards/nrf7002dk_nrf5340_cpuapp_ns.conf
-    -DDTC_OVERLAY_FILE=/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/boards/nrf7002dk_nrf5340_cpuapp_ns.overlay
-  topdir: /workspace/.emotiv/nrfconnect/v2.9.0-nRF54H20-rc1
+    --board nrf54h20dk/nrf54h20/cpuapp -- -DNCS_TOOLCHAIN_VERSION=NONE -DBS_CONFIG_SUIT_EVELOPE_NORDIC_TOP_DIRECTORY=/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/nordic_top.suit
+    -DCONF_FILE= -DEXTRA_CONF_FILE= -DDTC_OVERLAY_FILE=/workspace/01.Emotiv/nrf7002/nrf7002_edge_impulse_test/SPI_sample/boards/nrf54h20dk_nrf54h20_cpuapp_fast.overlay
+  topdir: /workspace/.emotiv/nrfconnect/v2.8.0
   version: 1.2.0
